@@ -1,0 +1,420 @@
+header {
+  border-bottom: 1px solid #eee;
+}
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+}
+header .container .menu,
+header .container .user-image {
+  display: none;
+}
+header .links-butns {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+header .container .first {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+header .container .first ul {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-right: 2px solid #eee;
+  padding: 10px 20px;
+}
+header .container .first ul li a {
+  text-decoration: none;
+  color: #868e96;
+  transition: 0.3s;
+  font-size: 1rem;
+  font-weight: 700;
+}
+header .container .first ul li a:hover {
+  color: #0057b7;
+}
+header .container .first ul li a:hover {
+  color: #0057b7;
+}
+header .container .first ul li a:hover {
+  color: #0057b7;
+}
+header .container .first ul li a:hover {
+  color: #0057b7;
+}
+header .links-butns .btns {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+header .links-butns .btns a,
+.user-peofile-web .serv-btn {
+  text-decoration: none;
+  padding: 0.75rem 1.25rem;
+  font-weight: 700;
+  background-color: #f3f4f6;
+  color: #495057;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0.75rem;
+}
+header .links-butns .btns .serv-btn,
+.user-peofile-web .serv-btn {
+  background-color: #ff9f1c;
+  box-shadow: #ff9f1c33 0px 10px 20px -10px;
+  color: white;
+}
+header .links-butns .btns .serv-btn:hover,
+.user-peofile-web .serv-btn:hover {
+  background-color: #f59300;
+  box-shadow: #ff9f1c33 0px 20px 20px -10px;
+}
+header .links-butns .btns a:hover {
+  background-color: #e9ecef;
+}
+
+header .container .unorderd-list {
+  flex-basis: 250px;
+  width: 300px;
+  height: calc(100vh);
+
+  top: 0;
+  right: -300px;
+  transition: 0.3s;
+  position: fixed;
+  z-index: 1111;
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  display: none;
+}
+
+header .container .unorderd-list ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  border-right: none;
+  padding: 0;
+  height: 100%;
+}
+header .container .unorderd-list ul li:has(.menu-logo) {
+  padding: 15px 25px 10px 25px;
+}
+header .container .unorderd-list ul li {
+  width: 100%;
+  padding: 10px;
+}
+header .container .unorderd-list ul .phone-links {
+  width: 100%;
+  flex: 1;
+}
+header .container .unorderd-list ul .menu-logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+header .container .unorderd-list ul .menu-logo .icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: #e9ecef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  color: #6c7275;
+}
+header .container .unorderd-list ul .profile,
+.user-peofile-web .profile-option .profile {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+header .container .unorderd-list ul .profile .image,
+.user-peofile-web .profile-option .profile .image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #e9ecef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header .container .unorderd-list ul .profile h2,
+.user-peofile-web .profile-option .profile h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+header .container .unorderd-list ul li:has(.profile) {
+  border-bottom: 1px solid #e9ecef;
+}
+header .container .unorderd-list ul li a,
+header .container .unorderd-list ul li .my-profile {
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+header .container .unorderd-list ul li a > div {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #475569;
+  transition: 0.3s;
+}
+
+header .container .unorderd-list ul li a.active {
+  background-color: #137fec1a;
+}
+header .container .unorderd-list ul li a.active > div {
+  color: #137fec;
+}
+header .container .unorderd-list ul li .my-profile {
+  color: #475569;
+}
+header .container .unorderd-list ul li a:hover,
+header .container .unorderd-list ul li .my-profile:hover {
+  background-color: #f8fafc;
+  color: #475569;
+}
+header .container .unorderd-list ul li.orders {
+  border-bottom: 1px solid #e9ecef;
+}
+header .container .unorderd-list ul .buttons {
+  display: flex;
+  gap: 0px;
+  flex-direction: column;
+  padding-bottom: 20px;
+  width: 100%;
+  & li {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+  }
+}
+header .container .unorderd-list ul .buttons button {
+  width: 100%;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border: none;
+  outline: none;
+
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  border-radius: 9px;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+header .container .unorderd-list ul .buttons button {
+  background-color: #ff8c00;
+}
+header .container .unorderd-list ul .buttons button:hover {
+  background-color: #ea580c;
+}
+header .container .unorderd-list ul .buttons button.log-out {
+  color: #64748b;
+  background-color: transparent;
+}
+header .container .unorderd-list ul .buttons button.log-out:hover {
+  background-color: #e9ecef;
+}
+
+.user-peofile-web {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.user-peofile-web .profile-option {
+  position: relative;
+  width: 250px;
+}
+.user-peofile-web .profile-option .profile .info {
+  flex: 1;
+  cursor: pointer;
+}
+
+.user-peofile-web .profile-option .profile .image svg {
+  color: #6c7275;
+}
+header .image img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: fill;
+}
+
+.user-peofile-web .profile-option .profile > svg {
+}
+.user-peofile-web .profile-option ul {
+  position: absolute;
+  width: 100%;
+  top: 110%;
+  left: 0;
+  background-color: rgba(241, 245, 249, 0.95); /* خلفية هادئة */
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  padding: 15px;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s;
+  z-index: 1111;
+}
+.user-peofile-web .profile-option ul.active {
+  opacity: 1;
+  visibility: visible;
+  top: 100%;
+}
+
+.user-peofile-web .profile-option ul li {
+}
+.user-peofile-web .profile-option ul li:first-child {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 9px;
+
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 10px;
+
+  & a {
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    cursor: pointer;
+    padding: 15px;
+    transition: 0.3s;
+  }
+  & a:hover {
+    background-color: #e9ecef; /* أزرق فاتح */
+    color: #0369a1;
+  }
+}
+.user-peofile-web .profile-option ul li:nth-child(2) {
+  & button {
+    padding: 15px;
+    border-radius: 9px;
+    background-color: #ff9f1c;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 48px;
+    gap: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    color: white;
+    font-weight: 600;
+
+    & svg {
+      font-size: 1.25rem;
+    }
+  }
+  & button:hover {
+    background-color: #f59300;
+  }
+}
+
+.user-peofile-web .profile-option ul li:last-child {
+  margin-top: 15px;
+  padding: 10px 0px 0;
+  border-top: 1px solid #e2e8f0;
+  & button {
+    padding: 15px;
+    border-radius: 9px;
+    background-color: rgb(220, 53, 69, 0.9);
+    color: #ffffff;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 48px;
+    gap: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    & svg {
+      font-size: 1.25rem;
+    }
+  }
+  & button:hover {
+    background-color: rgb(220, 53, 69);
+  }
+}
+@media (width < 992px) {
+  .user-peofile-web .profile-option {
+    /* width: 220px; */
+  }
+}
+@media (width < 768px) {
+  header .links-butns {
+    display: none;
+  }
+  header .container .first {
+    gap: 10px;
+  }
+  header .container .first > ul {
+    display: none;
+  }
+  header .container .menu {
+    font-size: 2rem;
+    cursor: pointer;
+    display: block;
+  }
+
+  header .container .unorderd-list {
+    display: block;
+  }
+  header .container .unorderd-list.active {
+    right: 0;
+  }
+
+  header .container .user-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    color: #6c7275;
+  }
+  header .container .user-image img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    object-fit: fill;
+  }
+
+  .user-peofile-web {
+    display: none;
+  }
+}

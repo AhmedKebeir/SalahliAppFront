@@ -1,0 +1,260 @@
+.request-details-page {
+  padding: 2rem 0;
+}
+.request-details-page .container {
+  position: relative;
+}
+.request-details-page .container .active-image {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.request-details-page .container .active-image img {
+  max-width: 90%;
+  max-height: 85%;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+.request-details-page .title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.request-details-page .title h2 {
+  font-size: 2.5rem;
+}
+.request-details-page .title .order-status {
+  padding: 10px 20px;
+  border-radius: 9px;
+  color: #854d0e;
+  background-color: #fef9c3;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.request-details-page .content {
+  display: flex;
+  gap: 20px;
+}
+.request-details-page .content section {
+  flex: 1;
+}
+.request-details-page .content .summary,
+.request-details-page .content .tech-details {
+  padding: 20px 15px;
+  background-color: white;
+  border-radius: 9px;
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  border: 1px solid #ced4da;
+  margin-bottom: 20px;
+}
+
+.request-details-page .content .summary h3,
+.request-details-page .content .tech-details h3 {
+  font-size: 1.75rem;
+  margin: 0 0 15px;
+}
+
+.request-details-page .content .summary h4 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.request-details-page .content .summary p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #6b7280;
+}
+
+.request-details-page .content .summary .image-prob {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+  /* overflow: hidden; */
+}
+.request-details-page .content .summary .image-prob img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover; /* يحافظ على التناسب ويقص الصورة لتملأ المربع */
+  border-radius: 9px; /* زوايا دائرية جميلة */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.request-details-page .content .summary .image-prob img:hover {
+  transform: scale(1.05);
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.request-details-page .content .tech-details .info {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.request-details-page .content .tech-details .info img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.request-details-page .content .tech-details .info h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.request-details-page .content .tech-details p {
+  color: #6c757d;
+  font-size: 1rem;
+  font-weight: 500;
+}
+.request-details-page aside > div {
+  padding: 20px 15px;
+  background-color: white;
+  border-radius: 9px;
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  border: 1px solid #ced4da;
+  margin-bottom: 20px;
+  width: 300px;
+}
+.request-details-page aside div h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.request-details-page aside div ul {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #6b7280;
+  position: relative;
+  z-index: 1;
+}
+.request-details-page aside div ul::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 19px;
+  height: 100%;
+  width: 2px;
+  background-color: #ced4da;
+  z-index: -1;
+}
+.request-details-page aside div ul li {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.request-details-page aside div ul li div svg {
+  color: #6b7280;
+  font-size: medium;
+}
+.request-details-page aside div ul li div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  min-height: 30px;
+  min-width: 30px;
+  border-radius: 50%;
+  background-color: #e5e7eb;
+  margin: 0;
+  border: 4px solid white;
+}
+.request-details-page aside div ul li div.active {
+  background-color: #28a745;
+  & svg {
+    color: white;
+  }
+}
+.request-details-page aside div ul li div.activeCancel {
+  background-color: #dc3545;
+  & svg {
+    color: white;
+  }
+}
+.request-details-page aside div ul li div.comming {
+  background-color: #137fec;
+  & svg {
+    color: white;
+  }
+}
+.request-details-page aside div ul li div.activeCancel {
+  background-color: #dc3545;
+  & svg {
+    color: white;
+  }
+}
+
+.request-details-page aside div ul li.active {
+  color: #28a745;
+}
+.request-details-page aside div ul li.comming {
+  color: #137fec;
+}
+.request-details-page aside div button {
+  width: calc(100%);
+  padding: 10px 20px;
+  margin-top: 20px;
+  border: none;
+  outline: none;
+
+  /* background-color: #137fece6; */
+
+  background-color: rgb(220, 53, 69, 0.9);
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  border-radius: 9px;
+  transition: 0.3s;
+}
+.request-details-page aside div button:hover {
+  background-color: #dc3545;
+}
+.request-details-page aside div button.not-active {
+  cursor: no-drop;
+}
+
+@media (width < 992px) {
+  .request-details-page .title {
+    flex-wrap: wrap;
+  }
+
+  .request-details-page .title h2 {
+    font-size: 1.75rem;
+  }
+  .request-details-page .content .summary h3,
+  .request-details-page .content .tech-details h3 {
+    font-size: 1.5rem;
+  }
+  .request-details-page .content {
+    flex-wrap: wrap;
+  }
+  .request-details-page .content .summary .image-prob img {
+    object-fit: fill;
+  }
+  .request-details-page aside {
+    width: 100%;
+  }
+  .request-details-page aside > div {
+    width: 100%;
+  }
+}

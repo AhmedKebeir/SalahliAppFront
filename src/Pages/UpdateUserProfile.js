@@ -1,0 +1,180 @@
+import { AiFillCaretDown } from "react-icons/ai";
+import "../Css/UpdateUserProfile.css";
+import Header from "../Components/Header";
+import { useEffect, useState } from "react";
+
+import { useGetCurrentUserQuery } from "../store/services/CurrentUser";
+import axios from "axios";
+import { BaseUrl, UpdateProfile } from "../APIs/Api";
+import Cookie from "cookie-universal";
+import AppLoading from "../Components/AppLoading";
+
+export default function UpdateUserProfile() {
+  const [loading, setLoading] = useState(false);
+  const cookie = Cookie();
+  const token = cookie.get("token");
+  const {
+    data: currentUser,
+    refetch,
+    isLoading,
+    isFetching,
+  } = useGetCurrentUserQuery();
+
+  const [form, setform] = useState({
+    firstName: "",
+    lastName: "",
+    fullName: "",
+    phoneNumber: "",
+    bio: "",
+  });
+
+  useEffect(() => {
+    if (currentUser) {
+      setform({
+        firstName: currentUser?.displayName.split(" ")[0],
+        lastName: currentUser?.displayName.split(" ")[1],
+        fullName: currentUser?.fullName,
+        phoneNumber: currentUser?.phoneNumber,
+        bio: currentUser?.bio,
+      });
+    }
+  }, [currentUser]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      if (
+        form.firstName === currentUser?.displayName.split(" ")[0] &&
+        form.lastName === currentUser?.displayName.split(" ")[1] &&
+        form.fullName === currentUser?.fullName &&
+        form.phoneNumber === currentUser?.phoneNumber &&
+        form.bio === currentUser?.bio
+      ) {
+        console.log("form is not valid");
+      } else {
+        const res = await axios.put(`${BaseUrl}/${UpdateProfile}`, form, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        if (res.status === 200) {
+          refetch();
+        }
+      }
+    } catch (err) {
+      refetch();
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  function handleChange(e) {
+    setform({ ...form, [e.target.name]: e.target.value });
+  }
+  return (
+    <>
+      <Header />
+
+      <div className="Update-profile bg-page">
+        {isLoading || isFetching ? (
+          <AppLoading heading="جاري التحميل...." />
+        ) : (
+          <div className="container">
+            <div className="title">
+              <h2>تعديل الملف الشخصي</h2>
+            </div>
+            <div className="personal-info">
+              <div className="title">
+                <div className="info">
+                  <div className="image">
+                    <img src={currentUser?.image} alt="user" />
+                  </div>
+                  <div className="main-info">
+                    <h3>بياناتي الشخصية</h3>
+                    <p>الاسم, البريد الإلكتروني, رقم الهاتف, الوصف</p>
+                  </div>
+                </div>
+                <AiFillCaretDown />
+              </div>
+
+              <form onSubmit={handleSubmit}>
+                <div>
+                  <label htmlFor="firstName">الاسم الأول</label>
+                  <input
+                    id="firstName"
+                    type="text"
+                    placeholder="ادخل الاسم الأول...."
+                    name="firstName"
+                    value={form.firstName}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="lastName">الاسم الأخير</label>
+                  <input
+                    id="lastName"
+                    type="text"
+                    placeholder="ادخل الاسم الأخير...."
+                    name="lastName"
+                    value={form.lastName}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="fullName">الاسم الكامل</label>
+                  <input
+                    id="fullName"
+                    type="text"
+                    placeholder="ادخل الاسم بالكامل...."
+                    name="fullName"
+                    value={form.fullName}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email">البريد الإلكتروني</label>
+                  <input
+                    id="email"
+                    type="email"
+                    placeholder="ادخل البريد الإلكتروني...."
+                    name="email"
+                    readOnly
+                    value={currentUser?.email}
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="phone">رقم الهاتف</label>
+                  <input
+                    id="phone"
+                    type="tel"
+                    placeholder="ادخل رقم الهاتف...."
+                    name="phoneNumber"
+                    value={form.phoneNumber}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="bio">الوصف</label>
+                  <input
+                    id="bio"
+                    type="text"
+                    placeholder="ادخل الوصف...."
+                    name="bio"
+                    value={form.bio}
+                    onChange={handleChange}
+                  />
+                </div>
+                <button type="submit" className="submit-btn" disabled={loading}>
+                  {loading ? <span className="btn-loader"></span> : "تعديل"}{" "}
+                </button>
+              </form>
+            </div>
+          </div>
+        )}
+      </div>
+    </>
+  );
+}

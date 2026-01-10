@@ -1,0 +1,510 @@
+.user-profile {
+  padding: 2rem 0;
+}
+
+.user-profile h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.user-profile .container .information {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 15px;
+  background-color: white;
+  border-radius: 9px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+}
+.user-profile .container .active-account,
+.user-profile .container .tech-departments {
+  padding-bottom: 15px;
+  background-color: white;
+  border-radius: 9px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin-top: 20px;
+}
+
+.user-profile .container .tech-departments .departments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 150px;
+  overflow-y: auto;
+  margin-top: 15px;
+  padding-left: 10px;
+}
+
+.user-profile .container .tech-departments .departments-list .item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-profile .container .tech-departments .departments-list .item span {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.user-profile .container .tech-departments .departments-list .item svg {
+  font-size: 1.5rem;
+  color: red;
+  cursor: pointer;
+}
+.user-profile .container .tech-departments .btn button {
+  padding: 10px 20px;
+  background-color: #137fece6;
+  border: none;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  margin-top: 15px;
+}
+.user-profile .container .tech-departments .btn button:hover {
+  background-color: #137fec;
+}
+
+.user-profile .container .active-account div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-profile .container .information .info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-profile .container .information .info .image {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e0e0e0;
+}
+.user-profile .container .information .info .image svg {
+  color: #6c7275;
+  font-size: 1.5rem;
+}
+.user-profile .container .information .info img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: fill;
+}
+
+.user-profile .container .information .info .image input {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.user-profile .container .information .info .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  border-radius: 50%;
+  max-width: 100%;
+}
+.user-profile .container .information .info .image label {
+  position: absolute;
+  bottom: -10px;
+
+  left: 0;
+
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.user-profile .container .information .info .image label svg {
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  color: #666;
+  cursor: pointer;
+}
+
+.user-profile .information .info h3,
+.user-profile .container .active-account h3,
+.user-profile .container .tech-departments h3 {
+  font-size: 1.5rem;
+}
+
+.user-profile .information .info p,
+.user-profile .container .active-account p {
+  font-size: 1rem;
+  color: #666;
+}
+.user-profile .information a {
+  padding: 10px 20px;
+
+  background-color: #137fece6;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  border-radius: 9px;
+  transition: 0.3s;
+  text-align: center;
+}
+.user-profile .information a:hover {
+  background-color: #137fec;
+}
+
+.user-profile .add-address,
+.user-profile .change-image,
+.user-profile .add-department-box {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.user-profile .add-address .address-form,
+.user-profile .change-image .change-form,
+.user-profile .add-department-box .departmets {
+  width: 90%;
+  max-width: 300px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 9px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-profile .add-department-box .departmets .department-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 10px;
+}
+.user-profile .add-department-box .departmets .department-list .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.user-profile .add-department-box .departmets .department-list .item span {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #666;
+}
+.user-profile .add-department-box .departmets .btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.user-profile .add-department-box .departmets .btn button {
+  padding: 10px 20px;
+  border-radius: 9px;
+  transition: 0.3s;
+  background-color: #137fece6;
+  color: white;
+  width: 50%;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.user-profile .add-department-box .departmets .btn button:hover {
+  background-color: #137fec;
+}
+.user-profile .add-department-box .departmets .btn button:last-child {
+  background-color: #9ca3af;
+}
+.user-profile .add-department-box .departmets .btn button:last-child:hover {
+  background-color: #6c7275;
+}
+.user-profile .add-address .address-form h2,
+.user-profile .change-image .change-form h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #111418;
+  text-align: center;
+}
+.user-profile .add-address .address-form form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.user-profile .add-address .address-form form label {
+  display: flex;
+  color: #2f4f4f;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+.user-profile .add-address .address-form form input {
+  width: 100%;
+  flex: 1;
+  padding: 15px 15px 15px 0;
+
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  color: #2f4f4f;
+  overflow: hidden;
+  background-color: white;
+  border: 1px solid #ced4da;
+  border-radius: 9px;
+  transition: 0.3s;
+  margin-bottom: 15px;
+}
+.user-profile .add-address .address-form form input:last-of-type {
+  margin-bottom: 5px;
+}
+.user-profile .add-address .address-form form input:focus {
+  border-color: #137fec;
+  outline: #137fec;
+}
+
+.user-profile .add-address .address-form form button,
+.user-profile .change-form form button {
+  width: calc(100%);
+  padding: 10px 20px;
+  margin-top: 20px;
+  border: none;
+  outline: none;
+
+  background-color: #137fece6;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  border-radius: 9px;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.user-profile .add-address .address-form form button .btn-loader,
+.user-profile .change-form form button .btn-loader {
+  display: flex;
+  margin: auto;
+}
+.user-profile .add-address .address-form form button:hover,
+.user-profile .change-form form button:hover {
+  background-color: #137fec;
+}
+
+.user-profile .change-form form .image {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin: 20px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #f3f4f6;
+}
+.user-profile .change-form form .image input {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 1;
+}
+.user-profile .change-form form .image svg {
+  font-size: 2rem;
+  color: #9ca3af;
+}
+.user-profile .change-form form .image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.user-profile .change-form form .image .hover-show {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: 0.3s;
+}
+.user-profile .change-form form .image:hover .hover-show {
+  opacity: 1;
+}
+@media (max-width: 786px) {
+  .user-profile .container .information {
+    flex-direction: column;
+
+    gap: 10px;
+  }
+  .user-profile .information a {
+    width: 100%;
+    text-align: center;
+  }
+  .user-profile .container .information .info {
+    width: 100%;
+  }
+  .user-profile .change-form form .image .hover-show {
+    opacity: 1;
+  }
+}
+
+.user-profile .content-users {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  display: flex;
+  gap: 20px;
+}
+
+.user-profile .content-users > div .connection-info {
+  margin-bottom: 2rem;
+}
+.user-profile .content-users .addresses-info,
+.user-profile .content-users > div .connection-info,
+.user-profile .content-users > div .orders-details {
+  padding: 15px;
+  border-radius: 9px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+.user-profile .content-users > div .connection-info h3,
+.user-profile .content-users > div .orders-details h3,
+.user-profile .content-users .addresses-info h3 {
+  font-size: 1.25rem;
+  color: #111418;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.user-profile .content-users > div .connection-info ul li {
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 9px;
+  margin-top: 10px;
+  color: #111418;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+}
+.user-profile .content-users > div .connection-info ul li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.user-profile .content-users > div .connection-info ul li span {
+  font-size: 1rem;
+  color: #666;
+  font-weight: 600;
+}
+
+.user-profile .content-users > div .orders-details ul li a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  color: #333;
+  padding: 15px;
+  border-radius: 9px;
+}
+
+.user-profile .content-users > div .orders-details ul li:first-child a {
+  background-color: #137fec;
+  color: white;
+}
+.user-profile .content-users > div .orders-details ul li:nth-child(2) a {
+  background-color: #15803d;
+  color: white;
+}
+.user-profile .content-users > div .orders-details ul li:last-child a {
+  background-color: #666;
+  color: white;
+  margin-bottom: 0;
+}
+.user-profile .content-users .addresses-info {
+  flex: 1;
+}
+
+.user-profile .content-users .addresses-info ul li,
+.user-profile .content-users .addresses-info a {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 9px;
+}
+
+.user-profile .content-users .addresses-info a {
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border: 2px dashed #e0e0e0;
+  transition: 0.3s;
+  color: #666;
+  font-size: 1rem;
+}
+.user-profile .content-users .addresses-info a:hover {
+  background-color: #f0f0f0;
+}
+.user-profile .content-users .addresses-info a svg {
+}
+.user-profile .content-users .addresses-info ul li .address-item {
+  flex: 1;
+}
+.user-profile .content-users .addresses-info ul li h4 {
+  font-size: 1rem;
+  color: #111418;
+  font-weight: 600;
+}
+.user-profile .content-users .addresses-info ul li p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.user-profile .content-users .addresses-info ul li svg {
+  font-size: 1.5rem;
+  color: #137fec;
+}
+
+.user-profile .content-users .addresses-info ul li button {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+
+  background-color: transparent;
+
+  align-self: center;
+}
+.user-profile .content-users .addresses-info ul li button svg {
+  font-size: 1.5rem;
+  color: red;
+  cursor: pointer;
+}
+
+.user-profile .content-users .addresses-info ul li .address-info {
+}
+
+@media (max-width: 992px) {
+  .user-profile .content-users {
+    flex-direction: column;
+  }
+}

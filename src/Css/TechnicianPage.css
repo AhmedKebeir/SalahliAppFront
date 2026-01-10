@@ -1,0 +1,552 @@
+.technician-page {
+  min-height: calc(100vh - 75px);
+}
+.technician-page .information {
+  padding: 2rem 0 0;
+}
+
+.technician-page .information .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+.technician-page .information .container .info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.technician-page .information .container .info img {
+  width: 100px;
+  height: 100px;
+  border-radius: 9px;
+  object-fit: contain;
+  cursor: pointer;
+}
+.technician-page .information .container .info h3 {
+  font-size: 1.75rem;
+}
+
+.technician-page .information .container .info .rating {
+  color: #6b7280;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+.technician-page .information .container .info .rating .star {
+  font-size: 1.5rem;
+  color: #fbbf24;
+}
+.technician-page .information .container .info .rating .count-rate {
+  color: #9ca3af;
+}
+
+.technician-page .information .container a {
+  font-size: 1.25rem;
+  font-weight: 700;
+  padding: 10px 0px;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #137fece6;
+
+  border-radius: 9px;
+  color: white;
+  transition: 0.3s;
+  text-decoration: none;
+}
+.technician-page .information .container a:hover {
+  background-color: #137fec;
+}
+
+@media (width < 768px) {
+  .technician-page .information .container .info h3 {
+    font-size: 1.25rem;
+  }
+  .technician-page .information .container {
+    flex-wrap: wrap;
+  }
+  .technician-page .information .container a {
+    margin-top: 15px;
+    font-size: 1rem;
+    width: 100%;
+  }
+  .technician-page .information .container .info .rating {
+    font-size: 1rem;
+  }
+  .technician-page .information .container .info .rating .star {
+    font-size: 1.25rem;
+  }
+}
+
+.technician-page > .container ul {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding-top: 20px;
+}
+
+.technician-page > .container ul li {
+  position: relative;
+  padding-bottom: 20px;
+  transition: 0.3s;
+}
+.technician-page > .container ul li a {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #6c757d;
+  transition: 0.3s;
+}
+.technician-page > .container ul li:has(a.active)::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background-color: #137fec;
+}
+
+.technician-page > .container ul li a.active {
+  color: #137fec;
+}
+
+.overview,
+.technician-rating-page {
+  background-color: #f8f9fa;
+  padding: 2rem 0;
+  min-height: 70vh;
+  position: relative;
+}
+.technician-page footer {
+  background-color: white;
+  border-top: 1px solid #dbe2e6;
+}
+
+.overview .container {
+  display: flex;
+  gap: 15px;
+}
+
+.overview .container > div {
+  flex: 1;
+}
+.rating-section {
+  position: relative;
+  min-height: 200px;
+}
+.overview .bio,
+.overview .service-list,
+.rating-section {
+  background-color: white;
+  padding: 15px;
+  border-radius: 9px;
+  border: 1px solid #dbe2e6;
+  margin-bottom: 20px;
+}
+.overview .bio h3,
+.overview .service-list h3,
+.rating-section h3,
+.overview .container aside > div h3 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+.overview .bio p {
+  font-size: 1rem;
+  font-weight: 500;
+}
+.overview .service-list h3 {
+  width: 100%;
+}
+
+.overview .service-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.overview .service-list .service-item {
+  background-color: #f3f4f6;
+  color: #2a3042;
+  padding-top: 0.375rem;
+  padding-bottom: 0.375rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  border-radius: 9999px;
+  font-size: 1rem;
+  line-height: 1rem;
+  font-weight: 600;
+}
+
+.rating-section .rate-char {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  gap: 15px;
+  background-color: #f8f9fa;
+  border-radius: 9px;
+}
+.rating-section .rate-char .progress {
+  flex: 1;
+}
+
+.rating-section .rate-char > div {
+  text-align: center;
+}
+.rating-section .rate-char .avg-rate {
+  display: flex;
+  justify-content: center;
+  font-size: 2.25rem;
+  color: #212529;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+.rating-section .rate-char .count-rate {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #6c757d;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.rating-section .rate-char .progress > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  width: 90%;
+  & span:first-child {
+    flex: 1;
+  }
+  & .persent {
+    color: #6c757d;
+    width: 50px;
+  }
+}
+.rating-section .rate-char .progress > div:last-child {
+  margin-bottom: 0;
+}
+@media (width < 992px) {
+  .rating-section .rate-char .progress > div {
+    width: 100%;
+  }
+}
+
+.rating-section .reviews-box {
+  padding: 15px;
+}
+.rating-section .reviews-box .reviews .review-item {
+  padding-top: 15px;
+}
+.rating-section .reviews-box .reviews .review-item:not(:last-child) {
+  border-bottom: 1px solid #eee;
+  padding: 15px 0;
+}
+.rating-section .reviews-box .reviews .review-item .data {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+}
+.rating-section .reviews-box .reviews .review-item .data > div {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.rating-section .reviews-box .reviews .review-item .data > div img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: contain;
+}
+.rating-section .reviews-box .reviews .review-item .data {
+  margin-bottom: 15px;
+}
+.rating-section .reviews-box .reviews .review-item .data h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.rating-section .reviews-box .reviews .review-item .data > span {
+  color: #6c757d;
+}
+.rating-section .reviews-box .reviews .review-item p {
+  color: #6c757d;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.overview .container aside {
+  flex-basis: 400px;
+  width: 400px;
+}
+
+.overview .container aside > div {
+  background-color: white;
+  padding: 15px;
+  border-radius: 9px;
+  border: 1px solid #dbe2e6;
+  margin-bottom: 20px;
+}
+.overview .container aside > div ul {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.overview .container aside > div ul li {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.overview .container aside > div:first-child ul li {
+  font-size: 1.25rem;
+
+  & svg {
+    color: #007bff;
+    font-size: 1.5rem;
+  }
+  & h4 {
+    font-size: 1rem;
+    color: #6c757d;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+  & p {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #212529;
+  }
+}
+.overview .container aside > div:first-child ul li:not(:last-child) {
+  margin-bottom: 15px;
+}
+.overview .container aside > div:last-child ul li {
+  color: #28a745;
+  background-color: #28a7451a;
+  padding: 10px 15px;
+  border-radius: 9px;
+  font-size: 1.25rem;
+}
+
+@media (width< 992px) {
+  .overview .container {
+    flex-direction: column;
+  }
+
+  .overview .container aside {
+    flex-basis: 100%;
+    width: 100%;
+  }
+}
+
+@media (width< 768px) {
+  .rating-section .rate-char {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .rating-section .rate-char .progress {
+    width: 100%;
+  }
+  .rating-section .rate-char .progress > div {
+    gap: 5px;
+  }
+  .rating-section .reviews-box .reviews .review-item .data > div img {
+    width: 60px;
+    height: 60px;
+  }
+  .rating-section .reviews-box .reviews .review-item .data h4 {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  .rating-section .reviews-box .reviews .review-item .data svg {
+    font-size: medium;
+  }
+
+  .rating-section .reviews-box .reviews .review-item p {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  .technician-page > .container ul li a {
+    font-size: 1rem;
+  }
+}
+
+.technician-rating-page .container {
+  display: flex;
+  gap: 20px;
+}
+
+.technician-rating-page .container .rating-section {
+  width: 40%;
+  height: fit-content;
+}
+
+.technician-rating-page .container .rating-section .rate-char {
+  flex-direction: column;
+}
+
+.technician-rating-page .container .rating-section .rate-char .progress {
+  width: 100%;
+}
+
+.technician-rating-page .container .rating-section .rate-char .progress > div {
+  gap: 5px;
+  width: 100%;
+}
+@media (width < 992px) {
+  .technician-rating-page .container {
+    flex-direction: column;
+  }
+  .technician-rating-page .container .rating-section .rate-char {
+    flex-direction: row;
+  }
+  .technician-rating-page .container .rating-section {
+    width: 100%;
+    height: fit-content;
+  }
+}
+@media (width < 768px) {
+  .technician-rating-page .container .rating-section .rate-char {
+    flex-direction: column;
+  }
+  .technician-rating-page .container .rating-section {
+    width: 100%;
+    height: fit-content;
+  }
+  .technician-rating-page .rating-section .rate-char > div {
+    width: 100%;
+  }
+}
+
+.technician-rating-page .container .rating-box {
+  flex: 1;
+}
+
+.technician-rating-page .container .rating-box .rating-list .rating-item {
+  padding: 15px;
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+}
+.technician-rating-page
+  .container
+  .rating-box
+  .rating-list
+  .rating-item
+  .information {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 0;
+}
+
+.technician-rating-page
+  .container
+  .rating-box
+  .rating-list
+  .rating-item
+  .information
+  .image {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+
+  & img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: fill;
+  }
+}
+.technician-rating-page
+  .container
+  .rating-box
+  .rating-list
+  .rating-item
+  .information
+  .no-image {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #f3e8ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9333ea;
+}
+.technician-rating-page
+  .container
+  .rating-box
+  .rating-list
+  .rating-item
+  .information
+  .info
+  h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #111411;
+}
+
+.technician-rating-page
+  .container
+  .rating-box
+  .rating-list
+  .rating-item
+  .information
+  .info
+  p {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #4c739a;
+  margin-top: 5px;
+
+  & span {
+    margin-right: 10px;
+  }
+}
+
+.technician-rating-page
+  .container
+  .rating-box
+  .rating-list
+  .rating-item
+  .stars {
+  margin: 10px 0;
+}
+.technician-rating-page
+  .container
+  .rating-box
+  .rating-list
+  .rating-item
+  .text
+  p {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0d141b;
+  line-height: 1.625;
+}
+
+.technician-rating-page
+  .container
+  .rating-box
+  .rating-list
+  .rating-item
+  .review-image {
+  display: flex;
+  margin-top: 15px;
+}
+.technician-rating-page
+  .container
+  .rating-box
+  .rating-list
+  .rating-item
+  .review-image
+  img {
+  height: 100px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  cursor: pointer;
+}

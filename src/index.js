@@ -1,13 +1,43 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter } from "react-router-dom";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { CacheProvider } from "@emotion/react";
+import createCache from "@emotion/cache";
+import rtlPlugin from "stylis-plugin-rtl";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
+import { TechnicianProvider } from "./Context/TechnicianProvider";
+import WindowWidthContext from "./Context/WindowWidthContext";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const theme = createTheme({
+  direction: "rtl", // 🔵 تشغيل RTL
+});
+
+const cacheRtl = createCache({
+  key: "muirtl",
+  stylisPlugins: [rtlPlugin],
+});
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <WindowWidthContext>
+        <CacheProvider value={cacheRtl}>
+          <ThemeProvider theme={theme}>
+            <Provider store={store}>
+              <TechnicianProvider>
+                <App />
+              </TechnicianProvider>
+            </Provider>
+          </ThemeProvider>
+        </CacheProvider>
+      </WindowWidthContext>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

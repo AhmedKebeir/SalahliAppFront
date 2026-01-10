@@ -1,0 +1,87 @@
+.about {
+  padding: 100px 0 50px 0;
+}
+.about .container {
+  justify-content: center;
+  padding: 20px 0px;
+  gap: 20px;
+  position: relative;
+}
+.about .container::after {
+  content: "";
+  position: absolute;
+  width: 80%;
+  height: 2px;
+  background-color: #eee;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.about .container::before {
+  content: "";
+  position: absolute;
+  width: 80%;
+  height: 2px;
+  background-color: #eee;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.about .container ul {
+  flex-basis: 250px;
+}
+.about .container ul:not(:first-child) {
+  padding: 15px 0;
+}
+.about .container ul li {
+  font-size: 1rem;
+  text-align: start;
+}
+.about .container ul li h1 {
+  font-size: 2rem;
+}
+.about .container ul li:first-child {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.about .container ul li a {
+  color: #000;
+  font-size: 1rem;
+  font-weight: 400;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.about .container ul li a:hover {
+  color: #607afb;
+}
+
+.about .container ul li .logo {
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0;
+}
+
+@media (width < 768px) {
+  .about .container {
+    flex-wrap: wrap;
+  }
+  .about .container ul {
+    flex-basis: auto;
+  }
+  .about .container ul:first-of-type {
+    width: 100%;
+    padding: 0 15px;
+  }
+  .about .container ul:nth-child(2),
+  .about .container ul:nth-child(3) {
+    width: calc(50% - 20px);
+  }
+  .about .container ul:nth-child(4) {
+    width: 100%;
+    padding: 0 15px;
+  }
+  footer {
+    font-size: 0.75rem;
+  }
+}

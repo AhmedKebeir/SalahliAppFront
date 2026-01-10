@@ -1,0 +1,223 @@
+.Update-profile {
+  padding: 2rem 0;
+  min-height: calc(100vh - 76px);
+}
+
+.Update-profile .container h2 {
+  font-size: 1.5rem;
+  color: #111418;
+  margin-bottom: 2rem;
+}
+.Update-profile .container .personal-info {
+  margin-bottom: 20px;
+}
+.Update-profile .container .personal-info,
+.Update-profile .container .addresses-info {
+  background-color: white;
+  padding: 15px;
+  border-radius: 9px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+.Update-profile .container .personal-info .title,
+.Update-profile .container .addresses-info .title {
+  display: flex;
+  align-items: center;
+
+  padding: 0 10px 10px;
+  flex: 1;
+}
+.Update-profile .container .personal-info .title .info,
+.Update-profile .container .personal-info .title .main-info,
+.Update-profile .container .addresses-info .title .info {
+  flex: 1;
+}
+.Update-profile .container .personal-info .title .main-info,
+.Update-profile .container .addresses-info .title .info {
+  cursor: pointer;
+}
+.Update-profile .container .addresses-info .title {
+  padding: 20px 10px;
+}
+.Update-profile .container .personal-info .title svg,
+.Update-profile .container .addresses-info .title svg {
+  cursor: pointer;
+}
+
+.Update-profile .container .personal-info .title .info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.Update-profile .container .personal-info .title .info .image {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+
+  background-color: #e0e0e0;
+}
+.Update-profile .container .personal-info .title .info h3,
+.Update-profile .container .addresses-info .title h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111418;
+}
+
+.Update-profile .container .addresses-info ul {
+  padding-top: 10px;
+  border-top: 1px solid #e0e0e0;
+}
+.Update-profile .container .addresses-info ul li {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 9px;
+}
+.Update-profile .container form button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  background-color: #137fece6;
+  width: fit-content;
+  padding: 10px 20px;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: 0.3s;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.Update-profile .container form button:hover {
+  background-color: #137fec;
+}
+.Update-profile .container .addresses-info ul li:not(:last-child) {
+  margin-bottom: 20px;
+}
+.Update-profile .container .addresses-info ul li .address-item {
+  flex: 1;
+}
+.Update-profile .container .personal-info .title .info p {
+  font-size: 1rem;
+  color: #137fec;
+  margin-top: 5px;
+}
+.Update-profile .container .personal-info .title .info .image input {
+  opacity: 0;
+}
+.Update-profile .container .personal-info .title .info .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  border-radius: 50%;
+  max-width: 100%;
+}
+.Update-profile .container .personal-info .title .info .image label {
+  position: absolute;
+  bottom: -10px;
+
+  left: 0;
+
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.Update-profile .container .personal-info .title .info .image label svg {
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  color: #666;
+  cursor: pointer;
+}
+
+.Update-profile .container form {
+  border-top: 1px solid #e0e0e0;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  transition: 0.3s ease-in-out;
+}
+
+.Update-profile .container form > div {
+  width: calc(50% - 10px);
+}
+.Update-profile .container form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.Update-profile .container form > div label {
+}
+.Update-profile .container form > div input {
+  width: 100%;
+  flex: 1;
+  padding: 15px 15px 15px 0;
+
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  color: #2f4f4f;
+  overflow: hidden;
+  background-color: #f9fafb;
+  border: 1px solid #ced4da;
+  border-radius: 9px;
+  transition: 0.3s ease-in-out;
+  margin-bottom: 15px;
+
+  direction: rtl;
+}
+
+.Update-profile .container form > div label {
+  display: flex;
+  color: #2f4f4f;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.Update-profile .container form > div input:focus {
+  border-color: #137fec;
+  outline: #137fec;
+  background-color: white;
+}
+
+.Update-profile .container .addresses-info ul li svg {
+  font-size: 1.5rem;
+  color: #137fec;
+}
+.Update-profile .container .addresses-info ul li button {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+
+  background-color: transparent;
+
+  align-self: center;
+}
+.Update-profile .container .addresses-info ul li button svg {
+  font-size: 1.5rem;
+  color: red;
+  cursor: pointer;
+}
+@media (width < 768px) {
+  .Update-profile .container .personal-info,
+  .Update-profile .container .addresses-info {
+    padding: 15px 10px;
+  }
+  .Update-profile .container .personal-info .title,
+  .Update-profile .container .addresses-info .title {
+    padding: 10px 0px 10px;
+  }
+  .Update-profile .container form {
+    padding: 10px 0;
+  }
+  .Update-profile .container form > div {
+    width: 100%;
+  }
+}

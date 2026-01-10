@@ -1,0 +1,777 @@
+.sign {
+  width: 100%;
+  margin: 0 auto;
+  /* flex-direction: row-reverse; */
+  /* border-radius: 9px; */
+  overflow: hidden;
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.05);
+  height: 100vh;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sign aside {
+  background-color: #005a8d;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-basis: 50%;
+}
+
+.sign aside h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+.sign aside p {
+  font-size: 1.75rem;
+  font-weight: 400;
+}
+
+.sign .right {
+  flex: 1;
+  padding: 40px 100px 40px 20px;
+  background-color: #f8f7f5;
+  flex-basis: 50%;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+.register .right {
+  padding-top: 15px !important;
+}
+
+.sign .right .logo {
+  justify-content: flex-start;
+  color: #0057b7;
+}
+
+.sign .right .logo h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+.sign .right h2 {
+  color: #2f4f4f;
+  font-size: 2rem;
+}
+.sign .right p {
+  color: #ced4da;
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+/* Account type  */
+
+.sign .right form .account-type {
+  display: flex;
+
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  width: 80%;
+}
+
+.sign .right form .account-type > div label {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 2px solid #d1d5db;
+  padding: 15px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+.sign .right form .account-type > div {
+  position: relative;
+}
+.sign .right form .account-type > div input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.sign .right .account-type h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #141414;
+}
+.sign .right .account-type p {
+  color: #737373;
+  font-size: 1rem;
+}
+
+.sign .right .account-type .icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: #1414141a;
+  & svg {
+    color: #141414;
+  }
+}
+.sign .right .account-type label .title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sign .right .account-type label .title div:last-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid #d4d4d4;
+  position: relative;
+  transition: 0.3s;
+}
+.sign .right .account-type div input:checked + label {
+  border: 2px solid #0057b7;
+}
+
+.sign
+  .right
+  .account-type
+  div
+  input:checked
+  + label
+  .title
+  div:last-child::before {
+  content: "";
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #0057b7;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.sign
+  .right
+  .account-type
+  div
+  input:checked
+  + label
+  .title
+  div:last-child::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* end account type  */
+
+.sign .right form label {
+  display: flex;
+  color: #2f4f4f;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+.sign .right .display-name {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 10px;
+}
+.sign .right .display-name > div {
+  flex: 1;
+  width: 100%;
+}
+.sign .right .display-name input {
+  background-color: white;
+  border: 1px solid #ced4da;
+  width: 100%;
+  border-radius: 9px;
+  margin-top: 5px;
+  flex: 1;
+  padding: 15px;
+
+  font-size: 1rem;
+
+  outline: none;
+  color: #2f4f4f;
+  overflow: hidden;
+}
+.sign .right form .username {
+  margin-bottom: 15px;
+}
+.sign .right form .username,
+.sign .right form .password {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  background-color: white;
+  border: 1px solid #ced4da;
+  padding: 0 15px 0 0;
+  border-radius: 9px;
+  /* margin-bottom: 15px; */
+  overflow: hidden;
+}
+.sign .right form .password:not(:last-of-type) {
+  margin-bottom: 15px;
+}
+.sign .right form .username {
+  gap: 10px;
+}
+.sign .right form .password {
+  justify-content: space-between;
+  gap: 10px;
+}
+.sign .right form .password span {
+  display: flex;
+  align-items: center;
+  /* gap: 10px; */
+  flex: 1;
+}
+.sign .right form .password svg:last-of-type {
+  margin-left: 15px;
+}
+
+.sign .right form input[type="text"],
+.sign .right form input[type="password"],
+.sign .right form input[type="email"] {
+  flex: 1;
+  padding: 15px 0px;
+
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  color: #2f4f4f;
+  overflow: hidden;
+}
+
+.sign .right form svg {
+  font-size: 20px;
+  color: #9ca3af;
+}
+.sign .err {
+  width: 80%;
+  color: red;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+}
+.remmember-my {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+  align-items: center;
+}
+.sign .err-active {
+  margin-top: 15px;
+}
+.remmember-my div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.remmember-my div input {
+  align-self: flex-start;
+}
+.remmember-my a {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0057b7;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.remmember-my span {
+  color: #0057b7;
+  font-weight: 500;
+  margin-right: 5px;
+}
+.remmember-my a:hover {
+  text-decoration: underline;
+  text-decoration-color: #0057b7;
+}
+
+.sign form button {
+  width: 80%;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border: none;
+  outline: none;
+  background-color: #ff8c00;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  border-radius: 9px;
+  transition: 0.3s;
+}
+.sign form button:hover {
+  background-color: #ea580c;
+}
+
+.sign .other {
+  width: 80%;
+  display: flex;
+  margin-top: 30px;
+  justify-content: center;
+  position: relative;
+
+  z-index: 1;
+}
+.sign .other span {
+  display: flex;
+  padding: 0 20px;
+  background-color: #f8f7f5;
+}
+
+.sign .other::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  height: 1px;
+  background-color: #ced4da;
+  z-index: -1;
+}
+
+.sign .sign-google {
+  margin-top: 20px;
+  width: 80%;
+  display: flex;
+  padding: 15px 20px;
+  justify-content: center;
+  align-items: center;
+  color: #2f4f4f;
+  font-size: 1.25rem;
+  font-weight: 600;
+  background-color: white;
+  border: 1px solid #ced4da;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.sign .sign-google:hover {
+  background-color: #f3f4f6;
+}
+
+.sign .create {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin-top: 20px;
+  color: #2f4f4f;
+  font-size: 1.25rem;
+}
+.sign .create a {
+  color: #0057b7;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+  margin-right: 5px;
+}
+.sign .create a:hover {
+  text-decoration: underline;
+}
+
+@media (width < 1400px) {
+  .sign .create,
+  .sign .sign-google,
+  .sign .other,
+  .sign form button,
+  .remmember-my,
+  .sign .right form .username,
+  .sign .right form .password,
+  .sign .err,
+  .sign .right .display-name,
+  .sign .right form .account-type {
+    width: 90%;
+  }
+}
+
+@media (width < 1200px) {
+  .sign .right {
+    padding-right: 50px;
+  }
+}
+@media (width < 992px) {
+  .sign aside {
+    display: none;
+  }
+}
+@media (width < 768px) {
+  .sign .right {
+    padding: 15px;
+  }
+  .sign .create,
+  .sign .sign-google,
+  .sign .other,
+  .sign form button,
+  .remmember-my,
+  .sign .right form .username,
+  .sign .right form .password,
+  .sign .err,
+  .sign .right .display-name,
+  .sign .right form .account-type {
+    width: 100%;
+  }
+  .sign .right h2 {
+    font-size: 1.5rem;
+  }
+  .sign .right p {
+    font-size: 1rem;
+  }
+}
+
+/* verification  */
+
+.verify,
+.address,
+.user-image,
+.tech-register {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #f6f7f8;
+}
+
+.verify .container,
+.address .container,
+.user-image .container,
+.tech-register .container {
+  width: 600px;
+  text-align: center;
+  background-color: white;
+  padding: 20px;
+  border-radius: 9px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+.verify .container h1,
+.address .container h1,
+.user-image .container h1,
+.tech-register .container h1 {
+  font-size: 2.5rem;
+}
+
+.verify .container h2,
+.address .container h2,
+.user-image .container h2,
+.tech-register .container h2 {
+  font-size: 2rem;
+  line-height: 1.6;
+}
+.verify .container p,
+.address .container p,
+.user-image .container p,
+.tech-register .container > p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+.verify .container form div {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+.address .container form {
+  display: flex;
+  flex-direction: column;
+  align-items: self-start;
+  width: 100%;
+}
+.address .container form label,
+.tech-register .container .form label {
+  display: flex;
+  color: #2f4f4f;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+.address .container form input,
+.tech-register .container .form input {
+  width: 100%;
+  flex: 1;
+  padding: 15px 15px 15px 0;
+
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  color: #2f4f4f;
+  overflow: hidden;
+  background-color: white;
+  border: 1px solid #ced4da;
+  border-radius: 9px;
+  transition: 0.3s;
+  margin-bottom: 15px;
+}
+.address .container form input:last-of-type,
+.tech-register .container .form input:last-of-type {
+  margin-bottom: 5px;
+}
+.address .container form input:focus,
+.tech-register .container .form input:focus {
+  border-color: #137fec;
+  outline: #137fec;
+}
+.verify .container form div input {
+  text-align: center;
+  font-size: 1rem;
+  padding: 15px 10px;
+  width: 50px;
+  border-radius: 9px;
+  color: #0f172a;
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  transition: 0.3s;
+  direction: ltr;
+}
+.verify .container form div input:focus {
+  border-color: #137fec;
+  outline: #137fec;
+}
+.verify .container form button,
+.address form button,
+.user-image .container button,
+.tech-register .container button {
+  width: calc(100%);
+  padding: 10px 20px;
+  margin-top: 20px;
+  border: none;
+  outline: none;
+
+  background-color: #ff8c00;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  border-radius: 9px;
+  transition: 0.3s;
+}
+.verify .container form button:hover,
+.address form button:hover,
+.user-image .container button:hover,
+.tech-register .container button:hover {
+  background-color: #ea580c;
+}
+
+.verify .err,
+.user-image .err,
+.tech-register .err,
+.request-service .err {
+  color: red;
+  width: 100%;
+  text-align: right;
+  margin-top: 10px !important;
+  justify-content: flex-end !important;
+  margin-bottom: 0 !important;
+}
+.request-service .err {
+  justify-content: flex-start !important;
+}
+.verify .container .resend {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1rem;
+  color: #475569;
+  & span {
+    color: #000;
+  }
+}
+.verify .container .resend button {
+  background-color: transparent;
+  margin: 0 5px;
+  color: #0057b7;
+  outline: none;
+  border: none;
+  font-size: 1.25rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.user-image .container form .image {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin: 20px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #f3f4f6;
+}
+.user-image .container form .image input {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 1;
+}
+.user-image .container form .image svg {
+  font-size: 2rem;
+  color: #9ca3af;
+}
+.user-image .container form .image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.user-image .container a {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  color: #9ca3af;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.tech-register .container {
+  width: 600px;
+}
+
+.tech-register .container .form div h3 {
+  text-align: start;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+.tech-register .container .form input {
+  padding-left: 10px;
+}
+
+.tech-register .categories {
+  background: white;
+  margin: 15px 0;
+}
+.tech-register .categories .category-list {
+  height: 100px;
+  max-height: 100px;
+  overflow-y: scroll;
+
+  padding-left: 10px;
+}
+.tech-register .categories .category-list .category-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.tech-register .categories .category-list .category-option:not(:last-child) {
+  margin-bottom: 5px;
+}
+.tech-register .categories .category-list .category-option span {
+  color: #6b7280;
+  font-size: 1rem;
+}
+.tech-register .categories .category-list .category-option input {
+  flex: none;
+  margin: 0;
+  width: fit-content;
+}
+.tech-register .container .form div .image {
+  width: 100%;
+  padding: 15px;
+  background-color: #f9fafb;
+  border: 2px dashed #d1d5db;
+  border-radius: 9px;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  flex-direction: column;
+  position: relative;
+  color: #6b7280;
+  height: fit-content;
+
+  & h3 {
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+  & p {
+    font-size: 1rem;
+  }
+  & svg {
+    font-size: 1.5rem;
+  }
+}
+.tech-register .container .form div .image input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  padding: 15px;
+  cursor: pointer;
+}
+.tech-register .container .form .image-show {
+  width: 150px;
+  height: 100px;
+  margin: 10px auto;
+  background-color: #f9fafb;
+  border: 2px solid #d1d5db;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  color: #6b7280;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.tech-register .container .form .image-show img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 11;
+  object-fit: fill;
+}
+
+@media (width < 768px) {
+  .verify .container,
+  .address .container,
+  .user-image .container,
+  .tech-register .container {
+    width: calc(100% - 30px);
+    padding-left: 10px;
+    padding-bottom: 10px;
+  }
+
+  .tech-register .container .form div .image {
+    & h3 {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    & p {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+  }
+}

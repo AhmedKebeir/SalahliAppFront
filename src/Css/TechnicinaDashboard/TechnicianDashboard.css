@@ -1,0 +1,1391 @@
+.technician-dashboard .tech-controle {
+  min-height: calc(100vh - 71px);
+}
+
+.technician-dashboard,
+.admin-dashboard {
+  display: flex;
+  position: relative;
+}
+.technician-dashboard > aside,
+.admin-dashboard > aside {
+  flex-basis: 250px;
+  width: 300px;
+  height: calc(100vh);
+  border-left: 1px solid #e5e7eb;
+  padding: 20px;
+  position: relative;
+  transition: 0.3s;
+  position: fixed;
+  z-index: 1111;
+}
+
+.technician-dashboard > aside .logo,
+.admin-dashboard > aside .logo {
+  justify-content: flex-start;
+}
+.technician-dashboard > aside ul,
+.admin-dashboard > aside ul {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.technician-dashboard > aside ul li a,
+.admin-dashboard > aside ul li a {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 1.25rem;
+  width: 100%;
+  background-color: transparent;
+  color: #6c7275;
+  padding: 10px 20px;
+  border-radius: 9px;
+  transition: 0.3s;
+}
+.technician-dashboard > aside ul li a:hover,
+.admin-dashboard > aside ul li a:hover {
+  background-color: #f3f4f6;
+}
+.technician-dashboard > aside ul li a.active,
+.admin-dashboard > aside ul li a.active {
+  background-color: #0057b7;
+  color: white;
+  border: none;
+  outline: none;
+}
+.technician-dashboard > aside button,
+.admin-dashboard > aside button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 1.25rem;
+  width: calc(100% - 40px);
+  transition: 0.3s;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  gap: 15px;
+  background-color: transparent;
+  color: #6c7275;
+}
+.technician-dashboard > aside button:hover,
+.admin-dashboard > aside button:hover {
+  background-color: rgb(243 244 246);
+}
+.technician-dashboard > .content,
+.admin-dashboard > .content {
+  flex: 1;
+  margin-right: 300px;
+  overflow-x: hidden;
+}
+
+.technician-dashboard > .content .header,
+.admin-dashboard > .content .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 15px 20px;
+}
+.technician-dashboard > .content .header h2 svg,
+.admin-dashboard > .content .header h2 svg {
+  display: none;
+}
+.technician-dashboard > .content .header .links,
+.admin-dashboard > .content .header .links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.technician-dashboard > .content .header .links a,
+.admin-dashboard > .content .header .links a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6c7275;
+  background-color: #f3f4f6;
+}
+.technician-dashboard > .content .header .links a img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: fill;
+}
+
+.dash-overview {
+  padding: 20px;
+  min-height: calc(100vh - 71px);
+  position: relative;
+}
+
+.dash-overview .dash-boxs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 20px;
+}
+
+.dash-overview .dash-boxs > a {
+  background-color: white;
+  padding: 20px;
+  border-radius: 9px;
+  border: 1px solid #e8ecef;
+}
+
+.dash-overview .dash-boxs > a h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #6c7275;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+.dash-overview .dash-boxs > a p {
+  margin-top: 15px;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #111418;
+}
+.dash-overview .dash-boxs > a p span {
+  font-size: 1.125rem;
+}
+
+.dash-overview .dash-boxs > a > span {
+  display: inline-block;
+  margin-top: 15px;
+  color: #6c7275;
+  font-size: 1rem;
+}
+/* .dash-overview .dash-boxs > a:last-child > span {
+  color: #16a34a;
+  font-weight: 600;
+} */
+.admin-dashboard .dash-overview .dash-boxs > a:last-child > span {
+  color: #6c7275;
+  font-weight: 500;
+}
+
+@media (width < 768px) {
+  .technician-dashboard > .content,
+  .admin-dashboard > .content {
+    margin-right: 0;
+  }
+  .technician-dashboard > .content .header,
+  .admin-dashboard > .content .header {
+    padding: 15px;
+  }
+  .dash-overview {
+    padding: 15px;
+  }
+  .dash-overview .dash-boxs {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+  }
+  .dash-overview .dash-boxs > a {
+    padding: 15px;
+  }
+  .dash-overview .dash-boxs > a h3 {
+    font-size: 1rem;
+  }
+  .dash-overview .dash-boxs > a p {
+    font-size: 1.25rem;
+  }
+  .dash-overview .dash-boxs > a p span {
+    font-size: 0.9rem;
+  }
+  .dash-overview .dash-boxs > a > span {
+    font-size: 0.9rem;
+  }
+  .technician-dashboard > aside,
+  .admin-dashboard > aside {
+    position: absolute;
+    background-color: white;
+    right: -100%;
+    width: 70%;
+    top: 0px;
+    height: calc(100vh);
+  }
+  .technician-dashboard > aside.show-menu,
+  .admin-dashboard > aside.show-menu {
+    right: 0;
+    box-shadow: -2px 0 15px rgba(0, 0, 0, 0.1);
+  }
+  .technician-dashboard > .content .header h2,
+  .admin-dashboard > .content .header h2 {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+  }
+  .technician-dashboard > .content .header h2 svg,
+  .admin-dashboard > .content .header h2 svg {
+    display: flex;
+    cursor: pointer;
+  }
+}
+
+.dash-overview .common {
+  padding: 20px 0;
+  margin-top: 30px;
+  display: flex;
+  gap: 20px;
+}
+.dash-overview .common .orders {
+  flex: 1;
+}
+
+.dash-overview .common .orders h3 {
+  font-size: 1.5rem;
+  /* margin-bottom: 15px; */
+}
+.dash-overview .common .orders .new-orders,
+.dash-overview .common .orders .current-orders {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.dash-overview .common .orders .current-orders h3 {
+  margin-top: 50px;
+}
+.dash-overview .common .orders .new-orders .order,
+.dash-overview .common .orders .current-orders .order {
+  padding: 15px 20px;
+  background-color: white;
+  border: 1px solid #e8ecef;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.dash-overview .common .orders .new-orders .order .data,
+.dash-overview .common .orders .current-orders .order .data {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.dash-overview .common .orders .new-orders .order img,
+.dash-overview .common .orders .current-orders .order img {
+  width: 70px;
+  height: 70px;
+  border-radius: 9px;
+}
+.dash-overview .common .orders .new-orders .order .image-hidden {
+  width: 70px;
+  height: 70px;
+  border-radius: 9px;
+  background-color: #e8ecef;
+}
+
+.dash-overview .common .orders .new-orders .order h4,
+.dash-overview .common .orders .current-orders .order h4 {
+  font-size: 1.25rem;
+  color: #111418;
+  margin-bottom: 5px;
+}
+.dash-overview .common .orders .new-orders .order p,
+.dash-overview .common .orders .current-orders .order p {
+  font-size: 1rem;
+  color: #6c7275;
+}
+.dash-overview .common .orders .new-orders .order span,
+.dash-overview .common .orders .current-orders .order span {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #6c7275;
+}
+
+.dash-overview .common .orders .new-orders .order span {
+  margin-top: 5px;
+  display: flex;
+}
+.dash-overview .common .orders .new-orders .order .order-btns {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+.dash-overview .common .orders .new-orders .order .order-btns button {
+  font-size: 1rem;
+  font-weight: 600;
+  transition: 0.3s;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+
+  color: white;
+  transition: 0.3s;
+}
+.dash-overview
+  .common
+  .orders
+  .new-orders
+  .order
+  .order-btns
+  button:first-child {
+  background-color: rgb(21, 128, 61, 0.9);
+}
+.dash-overview
+  .common
+  .orders
+  .new-orders
+  .order
+  .order-btns
+  button:first-child:hover {
+  background-color: rgb(21, 128, 61);
+}
+
+.dash-overview
+  .common
+  .orders
+  .new-orders
+  .order
+  .order-btns
+  button:last-child {
+  background-color: rgb(185, 28, 28, 0.9);
+}
+.dash-overview
+  .common
+  .orders
+  .new-orders
+  .order
+  .order-btns
+  button:last-child:hover {
+  background-color: rgb(185, 28, 28);
+}
+
+.dash-overview .common .orders .current-orders .order a {
+  width: calc(100%);
+  padding: 10px 20px;
+
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #137fece6;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  border-radius: 9px;
+  transition: 0.3s;
+}
+.dash-overview .common .orders .current-orders .order a:hover {
+  background-color: #137fec;
+}
+.dash-overview .common .profile {
+  margin-top: 49px;
+  width: 25%;
+}
+
+.dash-overview .common .profile .data {
+  background-color: #f59e0b33;
+  padding: 15px;
+  border-radius: 9px;
+  border: 1px solid hwb(38 4% 4% / 0.5);
+  text-align: center;
+}
+.dash-overview .common .profile .data > div {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 0 auto 15px;
+  background-color: #f59e0b;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.25rem;
+}
+.dash-overview .common .profile h3 {
+  font-size: 1.5rem;
+  color: #090a0a;
+}
+.dash-overview .common .profile p {
+  font-size: 1rem;
+  color: #6c7275;
+  margin-bottom: 15px;
+}
+
+.dash-overview .common .profile a {
+  width: calc(100%);
+  padding: 10px 20px;
+
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(245, 158, 11, 0.8);
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  border-radius: 9px;
+  transition: 0.3s;
+}
+.dash-overview .common .profile a:hover {
+  background-color: #f59e0b;
+}
+@media (width < 1400px) {
+  .dash-overview .common {
+    flex-wrap: wrap;
+  }
+  .dash-overview .common .profile {
+    width: 100%;
+  }
+}
+@media (screen) {
+}
+@media (width <992px) {
+  .dash-overview .common {
+    flex-direction: column;
+  }
+  .dash-overview .common .orders .new-orders .order,
+  .dash-overview .common .orders .current-orders .order {
+    flex-wrap: wrap;
+    padding: 15px 10px;
+    gap: 0;
+  }
+  .dash-overview .common .orders .new-orders .order span,
+  .dash-overview .common .orders .current-orders .order span {
+    margin-top: 10px;
+    font-weight: 500;
+    align-self: start;
+    /* width: 100%; */
+  }
+  .dash-overview .common .orders .new-orders .order .order-btns,
+  .dash-overview .common .orders .current-orders .order .order-btns {
+    width: 100%;
+    margin-top: 10px;
+  }
+  .dash-overview .common .orders .new-orders .order .order-btns button,
+  .dash-overview .common .orders .current-orders .order a {
+    width: 100%;
+  }
+}
+
+/* order details control  */
+.technician-dashboard .order-control,
+.technician-dashboard .reviews-dashboard {
+  padding: 2rem 20px;
+  position: relative;
+}
+.technician-dashboard .order-control:has(.app-loading),
+.technician-dashboard .reviews-dashboard:has(.app-loading) {
+  min-height: calc(100dvh - 71px);
+}
+
+.technician-dashboard .reviews-dashboard:has(.app-loading) {
+}
+.technician-dashboard .order-control .title,
+.technician-dashboard .reviews-dashboard .title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.technician-dashboard .order-control .title h2,
+.technician-dashboard .reviews-dashboard .title h2 {
+  font-size: 1.5rem;
+}
+.technician-dashboard .order-control .title .order-status {
+  padding: 10px 20px;
+  border-radius: 9px;
+  color: #854d0e;
+  background-color: #fef9c3;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.technician-dashboard .order-control .content {
+  display: flex;
+  gap: 20px;
+}
+.technician-dashboard .order-control section {
+  flex: 1;
+}
+.technician-dashboard .order-control .summary,
+.technician-dashboard .order-control .tech-details {
+  padding: 20px 15px;
+  background-color: white;
+  border-radius: 9px;
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  border: 1px solid #ced4da;
+  margin-bottom: 20px;
+}
+
+.technician-dashboard .order-control h3,
+.technician-dashboard .order-control .content .tech-details h3 {
+  font-size: 1.75rem;
+  margin: 0 0 15px;
+}
+
+.technician-dashboard .order-control .content .summary h4 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.technician-dashboard .order-control .content .summary p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #6b7280;
+}
+.technician-dashboard .order-control .content .summary .image-prob {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+  /* overflow: hidden; */
+}
+.technician-dashboard .order-control .content .summary .image-prob img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover; /* يحافظ على التناسب ويقص الصورة لتملأ المربع */
+  border-radius: 9px; /* زوايا دائرية جميلة */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.technician-dashboard .order-control .content .summary .image-prob img:hover {
+  transform: scale(1.05);
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.technician-dashboard .order-control .content .tech-details .info {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.technician-dashboard .order-control .content .tech-details .info img,
+.technician-dashboard
+  .order-control
+  .content
+  .tech-details
+  .info
+  .image-hidden {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: fill;
+  background-color: #ced4da;
+}
+.technician-dashboard .order-control .content .tech-details .info h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.technician-dashboard .order-control .content .tech-details p {
+  color: #6c757d;
+  font-size: 1rem;
+  font-weight: 500;
+}
+.technician-dashboard .order-control .content .tech-details a {
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: #137fece6;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  border-radius: 9px;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 300px;
+}
+.technician-dashboard .order-control .content .tech-details a:hover {
+  background-color: #137fec;
+}
+
+.technician-dashboard .order-control aside > div {
+  padding: 20px 15px;
+  background-color: white;
+  border-radius: 9px;
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  border: 1px solid #ced4da;
+  margin-bottom: 20px;
+  width: 300px;
+}
+.technician-dashboard .order-control aside div h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.technician-dashboard .order-control aside div ul {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #6b7280;
+  position: relative;
+  z-index: 1;
+}
+.technician-dashboard .order-control aside div ul::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 19px;
+  height: 100%;
+  width: 2px;
+  background-color: #ced4da;
+  z-index: -1;
+}
+.technician-dashboard .order-control aside div ul li {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.technician-dashboard .order-control aside div ul li div svg {
+  color: #6b7280;
+  font-size: medium;
+}
+.technician-dashboard .order-control aside div ul li div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  min-height: 30px;
+  min-width: 30px;
+  border-radius: 50%;
+  background-color: #e5e7eb;
+  margin: 0;
+  border: 4px solid white;
+}
+.technician-dashboard .order-control .active-image {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 111111;
+}
+.technician-dashboard .order-control .active-image img {
+  max-width: 90%;
+  max-height: 85%;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+.technician-dashboard .order-control aside div ul li div.active {
+  background-color: #28a745;
+  & svg {
+    color: white;
+  }
+}
+.technician-dashboard .order-control aside div ul li div.comming {
+  background-color: #137fec;
+  & svg {
+    color: white;
+  }
+}
+
+.technician-dashboard .order-control aside div ul li.active {
+  color: #28a745;
+}
+.technician-dashboard .order-control aside div ul li.comming {
+  color: #137fec;
+}
+.technician-dashboard .order-control aside div button {
+  width: calc(100%);
+  padding: 10px 20px;
+  margin-top: 20px;
+  border: none;
+  outline: none;
+
+  /* background-color: #137fece6; */
+
+  background-color: rgb(220, 53, 69, 0.9);
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  border-radius: 9px;
+  transition: 0.3s;
+}
+.technician-dashboard .order-control aside div button:hover {
+  background-color: #dc3545;
+}
+
+.technician-dashboard .order-control aside div button.accept-order {
+  background-color: rgb(21, 128, 61, 0.9);
+}
+.technician-dashboard .order-control aside div button.accept-order:hover {
+  background-color: rgb(21, 128, 61);
+}
+.technician-dashboard .order-control aside div button.not-active {
+  cursor: no-drop;
+}
+.technician-dashboard .order-control aside div button.update-order {
+  background-color: #137fece6;
+}
+.technician-dashboard .order-control aside div button.update-order:hover {
+  background-color: #137fec;
+}
+
+@media (width < 1200px) {
+  .technician-dashboard .order-control {
+    padding: 2rem 10px;
+  }
+  .technician-dashboard .order-control .title {
+    flex-wrap: wrap;
+  }
+
+  .technician-dashboard .order-control .title h2 {
+    font-size: 1.75rem;
+  }
+  .technician-dashboard .order-control .content .summary h3,
+  .technician-dashboard .order-control.tech-details h3 {
+    font-size: 1.5rem;
+  }
+  .technician-dashboard .order-control .content {
+    flex-wrap: wrap;
+  }
+  .technician-dashboard .order-control .content .summary .image-prob img {
+    object-fit: fill;
+  }
+  .technician-dashboard .order-control .content .tech-details a {
+    width: 100%;
+  }
+  .technician-dashboard .order-control aside {
+    width: 100%;
+  }
+  .technician-dashboard .order-control aside > div {
+    width: 100%;
+  }
+}
+
+/* Technician Orders Control  */
+
+.technician-dashboard .tech-controle {
+  padding: 2rem 10px;
+}
+
+.technician-dashboard .tech-controle .title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.technician-dashboard .tech-controle .title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.technician-dashboard .tech-controle .title .info h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #111418;
+  margin-bottom: 5px;
+}
+.technician-dashboard .cat-mangment .title .info p {
+  font-size: 1rem;
+  color: #6c7275;
+}
+
+.technician-dashboard .tech-controle .title .btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 20px;
+
+  background-color: #137fece6;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  border-radius: 9px;
+  transition: 0.3s;
+}
+
+.technician-dashboard .tech-controle .title .btn:hover {
+  background-color: #137fec;
+}
+
+.technician-dashboard .tech-controle .title .btn svg {
+  font-size: 1.5rem;
+}
+
+.tech-controle .tech-controle .details {
+  color: #0d59f2;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.technician-dashboard .tech-controle .details:hover {
+  text-decoration: underline;
+}
+@media (width < 768px) {
+  .technician-dashboard .tech-controle {
+    padding: 2rem 15px;
+  }
+  .technician-dashboard .tech-controle .title {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+}
+
+.technician-dashboard .tech-box {
+  border: 1px solid #e5e7eb;
+  padding: 10px;
+
+  border-radius: 9px;
+  background-color: white;
+  width: 100%;
+}
+
+.technician-dashboard .tech-box .head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.technician-dashboard .tech-box .head .search-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  gap: 5px;
+  border: 1px solid #e5e7eb;
+  border-radius: 9px;
+  padding: 5px 10px;
+}
+
+.technician-dashboard .tech-box .head .search-box input {
+  outline: none;
+  border: none;
+  flex: 1;
+  font-size: 1rem;
+  padding: 10px 0;
+  color: #0f172a;
+}
+
+.technician-dashboard .tech-box .head .search-box button {
+  padding: 10px 20px;
+  border: none;
+  outline: none;
+  background-color: #137fece6;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  border-radius: 9px;
+  transition: 0.3s;
+}
+
+.technician-dashboard .tech-box .head .search-box button:hover {
+  background-color: #137fec;
+}
+
+.technician-dashboard .tech-box .head .search-box svg {
+  color: #9ca3af;
+  font-size: 1.25rem;
+  display: flex;
+}
+
+.technician-dashboard .tech-box .head .filter {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.technician-dashboard .tech-box .head .filter select {
+  padding: 10px 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 9px;
+  font-size: 1rem;
+  background-color: #f9fafb;
+  color: #111827;
+  outline: none;
+}
+
+.technician-dashboard .tech-box .table {
+  width: 100%;
+  overflow: auto;
+  border-top: 1px solid #e5e7eb;
+}
+
+.technician-dashboard .tech-box .table table {
+  width: 100%;
+  min-width: 500px;
+  border-spacing: 0;
+  border-collapse: collapse;
+  overflow-x: scroll;
+}
+
+.technician-dashboard .tech-box .table table {
+  min-width: 1000px;
+}
+
+.technician-dashboard .tech-box .table th {
+  background-color: #f9fafb;
+
+  font-weight: bold;
+  padding: 15px;
+  border-bottom: 1px solid #f0f0f0;
+  text-align: start;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.technician-dashboard .tech-box .table table tbody td {
+  padding: 15px;
+  /* font-size: 14px; */
+  font-size: 1rem;
+  color: #4b5563;
+  border-bottom: 1px solid #f0f0f0;
+  transition: 0.3s;
+}
+.technician-dashboard .tech-box .table table tbody td:first-child {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: "Inter", "sans-serif";
+  & img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: fill;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+  & img:hover {
+    transform: scale(1.1);
+  }
+}
+.technician-dashboard .tech-box .table table tbody td .depts {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.technician-dashboard .tech-box .table table tbody td .depts span {
+  padding: 5px 10px;
+  border-radius: 9px;
+  background-color: #e5e7eb;
+  color: #111827;
+  font-size: 0.8rem;
+}
+.technician-dashboard .tech-box .table table tbody td span.active {
+  padding: 5px 10px;
+  border-radius: 9px;
+  background-color: #28a7451a;
+  color: #28a745;
+  font-size: 0.8rem;
+}
+
+.technician-dashboard .tech-box .table table tbody tr:hover {
+  background-color: #f9fafb;
+  transition: 0.3s;
+}
+
+.technician-dashboard .tech-box .table table tbody tr:last-child td {
+  border-bottom: none;
+}
+.technician-dashboard .tech-box .table table tbody tr:last-child td > a {
+  color: #0d59f2;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.technician-dashboard .tech-box .table table tbody tr:last-child td > a:hover {
+  text-decoration: underline;
+}
+
+.technician-dashboard .tech-box .table table tbody tr td:last-of-type svg {
+  font-size: 1.5rem;
+  margin-left: 20px;
+  cursor: pointer;
+}
+.technician-dashboard .tech-box .table table tbody tr td:last-of-type svg {
+  color: #6c757d;
+}
+
+.technician-dashboard .tech-box .pagin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 0;
+}
+.muirtl-btxnvc-MuiPaginationItem-root {
+  display: none !important;
+}
+
+@media (width < 768px) {
+  .technician-dashboard .tech-box {
+    padding: 10px 5px;
+  }
+
+  .technician-dashboard .tech-box .head {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .technician-dashboard .tech-box .head .search-box {
+    width: 100%;
+  }
+  .muirtl-vs6a7b-MuiButtonBase-root-MuiPaginationItem-root {
+    height: 30px !important;
+    width: 30px !important;
+    min-width: 30px !important;
+    min-height: 30px !important;
+  }
+
+  .technician-dashboard .tech-box .head .filter select {
+    width: calc(50% - 5px);
+  }
+}
+
+.technician-dashboard .accept-alter,
+.update-order-box {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1111;
+}
+.technician-dashboard .accept-alter .accept-box,
+.update-order-box .update-order {
+  width: 300px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.technician-dashboard .accept-alter .accept-box h2,
+.update-order-box .update-order h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #111418;
+}
+.technician-dashboard .accept-alter .accept-box .buttons,
+.update-order-box .update-order .buttons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: center;
+}
+.technician-dashboard .accept-alter .accept-box .schedule {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+.technician-dashboard .accept-alter .accept-box .schedule label,
+.update-order-box .update-order label {
+  display: flex;
+  color: #2f4f4f;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+.technician-dashboard .accept-alter .accept-box .schedule input,
+.update-order-box .update-order select {
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+  padding: 15px 10px;
+
+  border-radius: 9px;
+  color: #0f172a;
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  transition: 0.3s;
+  direction: ltr;
+}
+.update-order-box .update-order select {
+  direction: rtl;
+}
+.technician-dashboard .accept-alter .accept-box .schedule input:focus,
+.update-order-box .update-order select:focus {
+  border-color: #137fec;
+  outline: #137fec;
+}
+.technician-dashboard .accept-alter .accept-box .buttons button,
+.update-order-box .update-order .buttons button {
+  width: 100px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 9px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.technician-dashboard .accept-alter .accept-box .buttons button:first-child,
+.update-order-box .update-order .buttons button:first-child {
+  background-color: rgb(21, 128, 61, 0.9);
+}
+.technician-dashboard
+  .accept-alter
+  .accept-box
+  .buttons
+  button:first-child:hover,
+.update-order-box .update-order .buttons button:first-child:hover {
+  background-color: rgb(21, 128, 61);
+}
+
+.technician-dashboard .accept-alter .accept-box .buttons button:last-child,
+.update-order-box .update-order .buttons button:last-child {
+  background-color: rgb(185, 28, 28, 0.9);
+}
+.technician-dashboard
+  .accept-alter
+  .accept-box
+  .buttons
+  button:last-child:hover,
+.update-order-box .update-order .buttons button:last-child:hover {
+  background-color: rgb(185, 28, 28);
+}
+
+.technician-dashboard .reviews-dashboard {
+  min-height: calc(100vh - 71px);
+}
+
+.technician-dashboard .reviews-dashboard .rating-page-dashboard {
+  display: flex;
+
+  gap: 10px;
+}
+
+.technician-dashboard
+  .reviews-dashboard
+  .rating-page-dashboard
+  .rating-section {
+  width: 40%;
+  height: fit-content;
+}
+.technician-dashboard
+  .reviews-dashboard
+  .rating-page-dashboard
+  .rating-section
+  .rate-char {
+  width: 100%;
+}
+.technician-dashboard .reviews-dashboard .rating-page-dashboard .rating-box {
+  flex: 1;
+}
+
+.technician-dashboard
+  .reviews-dashboard
+  .rating-page-dashboard
+  .rating-box
+  .rating-list
+  .rating-item {
+  padding: 15px;
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+}
+
+.technician-dashboard
+  .reviews-dashboard
+  .rating-page-dashboard
+  .rating-box
+  .rating-list
+  .rating-item
+  .information {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 0;
+}
+
+.technician-dashboard
+  .reviews-dashboard
+  .rating-page-dashboard
+  .rating-box
+  .rating-list
+  .rating-item
+  .information
+  .image {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+
+  & img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: fill;
+  }
+}
+.technician-dashboard
+  .reviews-dashboard
+  .rating-page-dashboard
+  .rating-box
+  .rating-list
+  .rating-item
+  .information
+  .no-image {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #f3e8ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9333ea;
+}
+.technician-dashboard
+  .reviews-dashboard
+  .rating-page-dashboard
+  .rating-box
+  .rating-list
+  .rating-item
+  .information
+  .info
+  h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #111411;
+}
+
+.technician-dashboard
+  .reviews-dashboard
+  .rating-page-dashboard
+  .rating-box
+  .rating-list
+  .rating-item
+  .information
+  .info
+  p {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #4c739a;
+  margin-top: 5px;
+
+  & span {
+    margin-right: 10px;
+  }
+}
+
+.technician-dashboard
+  .reviews-dashboard
+  .rating-page-dashboard
+  .rating-box
+  .rating-list
+  .rating-item
+  .stars {
+  margin: 10px 0;
+}
+.technician-dashboard
+  .reviews-dashboard
+  .rating-page-dashboard
+  .rating-box
+  .rating-list
+  .rating-item
+  .text
+  p {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0d141b;
+  line-height: 1.625;
+}
+
+.technician-dashboard
+  .reviews-dashboard
+  .rating-page-dashboard
+  .rating-box
+  .rating-list
+  .rating-item
+  .review-image {
+  display: flex;
+  margin-top: 15px;
+}
+.technician-dashboard
+  .reviews-dashboard
+  .rating-page-dashboard
+  .rating-box
+  .rating-list
+  .rating-item
+  .review-image
+  img {
+  height: 100px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  cursor: pointer;
+}
+
+@media (width <1400px) {
+  .technician-dashboard .reviews-dashboard .rating-page-dashboard {
+    flex-direction: column;
+  }
+  .technician-dashboard
+    .reviews-dashboard
+    .rating-page-dashboard
+    .rating-section {
+    width: 100%;
+  }
+}
+
+@media (width < 768px) {
+  .rating-section .rate-char > div {
+    width: 100%;
+  }
+}
+
+@media (width < 768px) {
+  .technician-dashboard .order-control,
+  .technician-dashboard .reviews-dashboard {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+.technician-dashboard .table:has(.app-loading) {
+  position: relative;
+  min-height: 200px;
+}

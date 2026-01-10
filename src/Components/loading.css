@@ -1,0 +1,84 @@
+/* loading.css */
+.app-loading {
+  position: fixed;
+  inset: 0;
+  background: #0f172a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+
+  z-index: 9999;
+}
+
+.categories-page .app-loading,
+.category-page .app-loading,
+.my-orders .table .app-loading,
+.technician-rating-page .app-loading,
+.rating-section .app-loading,
+.admin-dashboard .table .app-loading,
+.tech-controle > .app-loading,
+.order-control .app-loading,
+.create-department .app-loading,
+.dash-overview .app-loading,
+.technician-dashboard .table .app-loading,
+.technician-dashboard .reviews-dashboard .app-loading {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background-color: #f8fafc;
+  color: #0f172a;
+  border-radius: 9px;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #334155;
+  border-top-color: #38bdf8;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+.categories-page .app-loading .loader,
+.category-page .app-loading .loader,
+.my-orders .table .app-loading .loader,
+.technician-rating-page .app-loading .loader,
+.rating-section .app-loading .loader,
+.admin-dashboard .table .app-loading .loader,
+.tech-controle > .app-loading .loader,
+.order-control .app-loading .loader,
+.create-department .app-loading .loader,
+.dash-overview .app-loading .loader,
+.technician-dashboard .table .app-loading .loader,
+.technician-dashboard .reviews-dashboard .app-loading .loader {
+  border: 5px solid #cbd5e1;
+  border-top-color: #0ea5e9;
+}
+
+.user-rating .app-loading,
+.user-profile .app-loading,
+.home-page .app-loading,
+.technician-page .app-loading,
+.Update-profile .app-loading,
+.request-details-page .app-loading {
+  top: 74px;
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+.user-rating .app-loading .loader,
+.user-profile .app-loading .loader,
+.home-page .app-loading .loader,
+.technician-page .app-loading .loader,
+.Update-profile .app-loading .loader,
+.request-details-page .app-loading .loader {
+  border: 5px solid #cbd5e1;
+  border-top-color: #0ea5e9;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

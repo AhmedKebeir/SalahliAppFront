@@ -1,0 +1,1045 @@
+.admin-dashboard .dash-overview,
+.admin-dashboard .cat-mangment,
+.admin-dashboard .tech-controle {
+  min-height: calc(100vh - 71px);
+  position: relative;
+}
+.admin-dashboard > .content {
+  overflow-x: hidden;
+  width: 100%;
+}
+.admin-dashboard .dash-overview > section {
+  display: flex;
+  gap: 20px;
+  margin-top: 2rem;
+}
+
+.admin-dashboard .dash-overview > section .last-orders {
+}
+.admin-dashboard .dash-overview > section .last-orders .title,
+.admin-dashboard .dash-overview > section .summry-technician .title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.admin-dashboard .dash-overview > section .last-orders .title h3,
+.admin-dashboard .dash-overview > section .summry-technician .title h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #1f2937;
+}
+.admin-dashboard .dash-overview > section .last-orders .title a,
+.admin-dashboard .dash-overview > section .summry-technician .title a {
+  color: #0d59f2;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: 0.3s;
+}
+.admin-dashboard .dash-overview > section .last-orders .title a:hover,
+.admin-dashboard .dash-overview > section .summry-technician .title a:hover {
+  text-decoration: underline;
+}
+.admin-dashboard .dash-overview > section .last-orders .table {
+  overflow-x: auto;
+  width: 100%;
+  border-radius: 9px;
+}
+.admin-dashboard .dash-overview > section .last-orders .table table {
+  width: 100%;
+  min-width: 1000px;
+  border-spacing: 0;
+  /* padding: 10px; */
+  /* overflow-x: scroll; */
+  background-color: white;
+  border: 1px solid #f0f0f0;
+  border-radius: 9px;
+  /* border-radius: 9px; */
+  /* overflow: hidden; */
+}
+.admin-dashboard .dash-overview > section .last-orders .table table thead th {
+  background-color: #f9fafb;
+
+  font-weight: bold;
+  padding: 15px;
+  border-bottom: 1px solid #f0f0f0;
+  text-align: start;
+}
+.admin-dashboard .dash-overview > section .last-orders .table table tbody td {
+  padding: 15px;
+  /* font-size: 14px; */
+  color: #4b5563;
+  border-bottom: 1px solid #f0f0f0;
+  transition: 0.3s;
+}
+.admin-dashboard
+  .dash-overview
+  > section
+  .last-orders
+  .table
+  table
+  tbody
+  tr:hover {
+  background-color: #f9fafb;
+  transition: 0.3s;
+}
+.admin-dashboard
+  .dash-overview
+  > section
+  .last-orders
+  .table
+  table
+  tbody
+  tr:last-child
+  td {
+  border-bottom: none;
+}
+
+.admin-dashboard
+  .dash-overview
+  > section
+  .last-orders
+  .table
+  table
+  tbody
+  td
+  > a {
+  color: #0d59f2;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.admin-dashboard
+  .dash-overview
+  > section
+  .last-orders
+  .table
+  table
+  tbody
+  td
+  > a:hover {
+  text-decoration: underline;
+}
+
+.admin-dashboard .dash-overview > section .summry-technician {
+  /* flex-basis: 300px; */
+  width: 400px;
+}
+
+.admin-dashboard .dash-overview > section .summry-technician ul {
+  border: 1px solid #e5e7eb;
+  background-color: white;
+  border-radius: 9px;
+  margin-top: 0px;
+  padding: 15px;
+}
+.admin-dashboard
+  .dash-overview
+  > section
+  .summry-technician
+  ul
+  li:not(:last-of-type) {
+  margin-bottom: 15px;
+}
+.admin-dashboard .dash-overview > section .summry-technician ul li a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-dashboard .dash-overview > section .summry-technician ul li a .data {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  line-height: 1.5;
+}
+.admin-dashboard .dash-overview > section .summry-technician ul li a .data h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111418;
+}
+.admin-dashboard .dash-overview > section .summry-technician ul li a .data p {
+  font-size: 1rem;
+  color: #6c7275;
+  margin: 0;
+}
+.admin-dashboard .dash-overview > section .summry-technician ul li img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: fill;
+}
+.admin-dashboard .dash-overview > section .summry-technician ul li .rate,
+.admin-dashboard .tech-box .table table tbody td .rate {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 600;
+  gap: 5px;
+  color: #eab308;
+}
+.admin-dashboard .dash-overview > section .summry-technician ul li svg,
+.admin-dashboard .tech-box .table table tbody td .rate svg {
+  color: #eab308;
+}
+
+@media (width < 1600px) {
+  .admin-dashboard .dash-overview > section {
+    flex-direction: column;
+    /* width: 100%; */
+  }
+}
+
+@media (width < 768px) {
+  .admin-dashboard .dash-overview > section .summry-technician {
+    width: 100%;
+  }
+  .admin-dashboard .dash-overview > section .last-orders .title h3,
+  .admin-dashboard .dash-overview > section .summry-technician .title h3 {
+    font-size: 1.25rem;
+  }
+}
+
+/* admin dashboard departments */
+
+.admin-dashboard .cat-mangment,
+.admin-dashboard .tech-controle,
+.admin-dashboard .create-department,
+.admin-dashboard .order-control {
+  padding: 2rem 20px;
+  position: relative;
+}
+.admin-dashboard .create-department .title:has(.app-loading) {
+  min-height: calc(100dvh - (4rem + 71px));
+  position: relative;
+}
+
+.admin-dashboard .cat-mangment .title,
+.admin-dashboard .tech-controle .title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+.admin-dashboard .cat-mangment .title .info h2,
+.admin-dashboard .tech-controle .title .info h2,
+.admin-dashboard .create-department .title h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #111418;
+  margin-bottom: 5px;
+}
+.admin-dashboard .cat-mangment .title .info p {
+  font-size: 1rem;
+  color: #6c7275;
+}
+.admin-dashboard .cat-mangment .title .btn,
+.admin-dashboard .tech-controle .title .btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 20px;
+
+  background-color: #137fece6;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  border-radius: 9px;
+  transition: 0.3s;
+}
+.admin-dashboard .cat-mangment .title .btn:hover,
+.admin-dashboard .tech-controle .title .btn:hover {
+  background-color: #137fec;
+}
+.admin-dashboard .cat-mangment .title .btn svg,
+.admin-dashboard .tech-controle .title .btn svg {
+  font-size: 1.5rem;
+}
+
+.admin-dashboard .tech-controle .details {
+  color: #0d59f2;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.admin-dashboard .tech-controle .details:hover {
+  text-decoration: underline;
+}
+@media (width < 768px) {
+  .admin-dashboard .cat-mangment,
+  .admin-dashboard .tech-controle {
+    padding: 2rem 15px;
+  }
+  .admin-dashboard .cat-mangment .title,
+  .admin-dashboard .tech-controle .title {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+}
+.admin-dashboard .cat-box,
+.admin-dashboard .tech-box {
+  border: 1px solid #e5e7eb;
+  padding: 10px;
+
+  border-radius: 9px;
+  background-color: white;
+  width: 100%;
+}
+.admin-dashboard .cat-box .cat-head,
+.admin-dashboard .tech-box .head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.admin-dashboard .cat-box .cat-head .search-box,
+.admin-dashboard .tech-box .head .search-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  gap: 5px;
+  border: 1px solid #e5e7eb;
+  border-radius: 9px;
+  padding: 5px 10px;
+}
+.admin-dashboard .cat-box .cat-head .search-box input,
+.admin-dashboard .tech-box .head .search-box input {
+  outline: none;
+  border: none;
+  flex: 1;
+  font-size: 1rem;
+  padding: 10px 0;
+  color: #0f172a;
+}
+.admin-dashboard .cat-box .cat-head .search-box button,
+.admin-dashboard .tech-box .head .search-box button {
+  padding: 10px 20px;
+  border: none;
+  outline: none;
+  background-color: #137fece6;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  border-radius: 9px;
+  transition: 0.3s;
+}
+.admin-dashboard .cat-box .cat-head .search-box button:hover,
+.admin-dashboard .tech-box .head .search-box button:hover {
+  background-color: #137fec;
+}
+
+.admin-dashboard .cat-box .cat-head .search-box svg,
+.admin-dashboard .tech-box .head .search-box svg {
+  color: #9ca3af;
+  font-size: 1.25rem;
+  display: flex;
+}
+
+.admin-dashboard .cat-box .cat-head .filter,
+.admin-dashboard .tech-box .head .filter {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.admin-dashboard .cat-box .cat-head .filter select,
+.admin-dashboard .tech-box .head .filter select {
+  padding: 10px 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 9px;
+  font-size: 1rem;
+  background-color: #f9fafb;
+  color: #111827;
+  outline: none;
+}
+.admin-dashboard .cat-box .table,
+.admin-dashboard .tech-box .table {
+  width: 100%;
+  overflow: auto;
+  border-top: 1px solid #e5e7eb;
+}
+.admin-dashboard .cat-box .table table,
+.admin-dashboard .tech-box .table table {
+  width: 100%;
+  min-width: 500px;
+  border-spacing: 0;
+  overflow-x: scroll;
+}
+.admin-dashboard .cat-box .table:has(.app-loading),
+.admin-dashboard .tech-box .table:has(.app-loading) {
+  position: relative;
+  min-height: 200px;
+}
+.admin-dashboard .tech-box .table table {
+  min-width: 1100px;
+}
+
+.admin-dashboard .cat-box .table th,
+.admin-dashboard .tech-box .table th {
+  background-color: #f9fafb;
+
+  font-weight: bold;
+  padding: 15px;
+  border-bottom: 1px solid #f0f0f0;
+  text-align: start;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.admin-dashboard .cat-box .table table tbody td,
+.admin-dashboard .tech-box .table table tbody td {
+  padding: 15px;
+  /* font-size: 14px; */
+  font-size: 1rem;
+  color: #4b5563;
+  border-bottom: 1px solid #f0f0f0;
+  transition: 0.3s;
+}
+
+.admin-dashboard .tech-box .table table tbody td:has(img) {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: "Inter", "sans-serif";
+  & img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: fill;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+  & img:hover {
+    transform: scale(1.1);
+  }
+}
+.admin-dashboard .tech-box .table table tbody td .depts {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.admin-dashboard .tech-box .table table tbody td .depts span {
+  padding: 5px 10px;
+  border-radius: 9px;
+  background-color: #e5e7eb;
+  color: #111827;
+  font-size: 0.8rem;
+}
+.admin-dashboard .tech-box .table table tbody td span.active {
+  padding: 5px 10px;
+  border-radius: 9px;
+  background-color: #28a7451a;
+  color: #28a745;
+  font-size: 0.8rem;
+}
+.admin-dashboard
+  .tech-box
+  .table
+  table
+  tbody
+  td
+  .rate
+  .admin-dashboard
+  .cat-box
+  .table
+  table
+  tbody
+  tr:hover,
+.admin-dashboard .tech-box .table table tbody tr:hover {
+  background-color: #f9fafb;
+  transition: 0.3s;
+}
+.admin-dashboard .cat-box .table table tbody tr:last-child td,
+.admin-dashboard .tech-box .table table tbody tr:last-child td {
+  border-bottom: none;
+}
+.admin-dashboard .cat-box .table table tbody td img {
+  width: 70px;
+  height: 70px;
+  border-radius: 9px;
+  object-fit: fill;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.admin-dashboard .cat-box .table table tbody td img:hover {
+  transform: scale(1.1);
+}
+
+.admin-dashboard .cat-box .table table tbody tr td:last-of-type svg,
+.admin-dashboard .tech-box .table table tbody tr td:last-of-type svg {
+  font-size: 1.5rem;
+  margin-left: 20px;
+  cursor: pointer;
+}
+.admin-dashboard .tech-box .table table tbody tr td:last-of-type svg {
+  color: #6c757d;
+}
+.admin-dashboard
+  .cat-box
+  .table
+  table
+  tbody
+  tr
+  td:last-of-type
+  a:first-child
+  svg {
+  color: #0d59f2;
+}
+.admin-dashboard
+  .cat-box
+  .table
+  table
+  tbody
+  tr
+  td:last-of-type
+  a:last-child
+  svg {
+  color: #dc2626;
+}
+
+@media (width < 768px) {
+  .admin-dashboard .cat-box,
+  .admin-dashboard .tech-box {
+    padding: 10px 5px;
+  }
+  .admin-dashboard .cat-box .cat-head,
+  .admin-dashboard .tech-box .head {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+  .admin-dashboard .cat-box .cat-head .search-box,
+  .admin-dashboard .tech-box .head .search-box {
+    width: 100%;
+  }
+  .muirtl-vs6a7b-MuiButtonBase-root-MuiPaginationItem-root {
+    height: 30px !important;
+    width: 30px !important;
+    min-width: 30px !important;
+    min-height: 30px !important;
+  }
+  .admin-dashboard .cat-box .cat-head .filter select,
+  .admin-dashboard .tech-box .head .filter select {
+    width: calc(50% - 5px);
+  }
+}
+
+/* create department */
+.admin-dashboard .create-department form {
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  /* align-items: center; */
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.admin-dashboard .create-department form > div:first-child {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.admin-dashboard .create-department form > div:first-child label {
+  display: flex;
+  color: #2f4f4f;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+.admin-dashboard .create-department form > div:first-child input,
+.admin-dashboard .create-department form > div:first-child textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ced4da;
+  outline: none;
+
+  border-radius: 10px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  background-color: #f9fafb;
+}
+.admin-dashboard .create-department form > div:first-child textarea {
+  margin-bottom: 0;
+  height: 150px;
+  resize: none;
+}
+.admin-dashboard .create-department form > div.image {
+  width: 300px;
+  padding: 15px;
+
+  border: 2px dashed #d1d5db;
+  border-radius: 9px;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  flex-direction: column;
+  position: relative;
+  color: #6b7280;
+  height: fit-content;
+
+  & h3 {
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+  & p {
+    font-size: 1rem;
+  }
+  & svg {
+    font-size: 1.5rem;
+  }
+}
+
+.admin-dashboard .create-department form > div.image input {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.admin-dashboard .create-department form > div.image img {
+  height: 150px;
+  object-fit: fill;
+  border-radius: 9px;
+}
+.admin-dashboard .create-department form .btns {
+  width: 100%;
+  padding: 20px 0;
+  border-top: 1px solid #ced4da;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.admin-dashboard .create-department form .btns button {
+  padding: 10px 20px;
+
+  border: none;
+  outline: none;
+
+  background-color: #137fece6;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  border-radius: 9px;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 150px;
+}
+.admin-dashboard .create-department form .btns button:hover {
+  background-color: #137fec;
+}
+.admin-dashboard .create-department form .btns a {
+  padding: 10px 20px;
+
+  border: none;
+  outline: none;
+
+  background-color: #e5e7eb;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+  cursor: pointer;
+  border-radius: 9px;
+  /* box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); */
+  transition: 0.3s;
+}
+.admin-dashboard .create-department form .btns a:hover {
+  background-color: #dcdcdc;
+}
+
+@media (width < 1200px) {
+  .admin-dashboard .create-department form {
+    flex-direction: column;
+  }
+  .admin-dashboard .create-department form > div.image {
+    width: 100%;
+  }
+  .admin-dashboard .create-department form > div.image img {
+    height: 200px;
+  }
+}
+@media (width < 768px) {
+  .admin-dashboard .create-department {
+    padding: 20px 10px;
+  }
+  .admin-dashboard .create-department form {
+    padding: 20px 10px;
+  }
+  .admin-dashboard .create-department form > div.image img {
+    height: 150px;
+  }
+  .admin-dashboard .create-department form .btns button,
+  .admin-dashboard .create-department form .btns a {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* order details control  */
+.admin-dashboard .order-control {
+  position: relative;
+  min-height: calc(100dvh - 71px);
+}
+
+.admin-dashboard .order-control .title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.admin-dashboard .order-control .title h2 {
+  font-size: 1.5rem;
+}
+.admin-dashboard .order-control .title .order-status {
+  padding: 10px 20px;
+  border-radius: 9px;
+  color: #854d0e;
+  background-color: #fef9c3;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.admin-dashboard .order-control .content {
+  display: flex;
+  gap: 20px;
+}
+.admin-dashboard .order-control section {
+  flex: 1;
+}
+.admin-dashboard .order-control .summary,
+.admin-dashboard .order-control .tech-details {
+  padding: 20px 15px;
+  background-color: white;
+  border-radius: 9px;
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  border: 1px solid #ced4da;
+  margin-bottom: 20px;
+}
+
+.admin-dashboard .order-control h3,
+.admin-dashboard .order-control .content .tech-details h3 {
+  font-size: 1.75rem;
+  margin: 0 0 15px;
+}
+
+.admin-dashboard .order-control .content .summary h4 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.admin-dashboard .order-control .content .summary p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #6b7280;
+}
+.admin-dashboard .order-control .content .summary .image-prob {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+  /* overflow: hidden; */
+}
+.admin-dashboard .order-control .content .summary .image-prob img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover; /* يحافظ على التناسب ويقص الصورة لتملأ المربع */
+  border-radius: 9px; /* زوايا دائرية جميلة */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.admin-dashboard .order-control .content .summary .image-prob img:hover {
+  transform: scale(1.05);
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.admin-dashboard .order-control .content .tech-details .info {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.admin-dashboard .order-control .content .tech-details .info img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: fill;
+}
+.admin-dashboard .order-control .content .tech-details .info h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.admin-dashboard .order-control .content .tech-details p {
+  color: #6c757d;
+  font-size: 1rem;
+  font-weight: 500;
+}
+.admin-dashboard .order-control .content .tech-details a {
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: #137fece6;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  border-radius: 9px;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 300px;
+}
+.admin-dashboard .order-control .content .tech-details a:hover {
+  background-color: #137fec;
+}
+
+.admin-dashboard .order-control aside > div {
+  padding: 20px 15px;
+  background-color: white;
+  border-radius: 9px;
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  border: 1px solid #ced4da;
+  margin-bottom: 20px;
+  width: 300px;
+}
+.admin-dashboard .order-control aside div h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.admin-dashboard .order-control aside div ul {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #6b7280;
+  position: relative;
+  z-index: 1;
+}
+.admin-dashboard .order-control aside div ul::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 19px;
+  height: 100%;
+  width: 2px;
+  background-color: #ced4da;
+  z-index: -1;
+}
+.admin-dashboard .order-control aside div ul li {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.admin-dashboard .order-control aside div ul li div svg {
+  color: #6b7280;
+  font-size: medium;
+}
+.admin-dashboard .order-control aside div ul li div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  min-height: 30px;
+  min-width: 30px;
+  border-radius: 50%;
+  background-color: #e5e7eb;
+  margin: 0;
+  border: 4px solid white;
+}
+.admin-dashboard .order-control .active-image {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 111111;
+}
+.admin-dashboard .tech-Updateing {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1111;
+}
+.admin-dashboard .tech-Updateing .update-points {
+  width: 300px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.admin-dashboard .tech-Updateing .update-points h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #111418;
+}
+.admin-dashboard .tech-Updateing .update-points label {
+  display: flex;
+  color: #2f4f4f;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+.admin-dashboard .tech-Updateing .update-points input {
+  width: 100%;
+  flex: 1;
+  padding: 15px 15px 15px 0;
+
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  color: #2f4f4f;
+  overflow: hidden;
+  background-color: white;
+  border: 1px solid #ced4da;
+  border-radius: 9px;
+  transition: 0.3s;
+  margin-bottom: 15px;
+}
+.admin-dashboard .tech-Updateing .update-points input:focus {
+  border-color: #137fec;
+  outline: #137fec;
+}
+.admin-dashboard .tech-Updateing .update-points button {
+  width: calc(100%);
+  padding: 10px 20px;
+
+  border: none;
+  outline: none;
+
+  background-color: #137fece6;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  border-radius: 9px;
+  transition: 0.3s;
+}
+.admin-dashboard .tech-Updateing .update-points button:hover {
+  background-color: #137fec;
+}
+
+.admin-dashboard .order-control .active-image img {
+  max-width: 90%;
+  max-height: 85%;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+.admin-dashboard .order-control aside div ul li div.active {
+  background-color: #28a745;
+  & svg {
+    color: white;
+  }
+}
+.admin-dashboard .order-control aside div ul li div.comming {
+  background-color: #137fec;
+  & svg {
+    color: white;
+  }
+}
+
+.admin-dashboard .order-control aside div ul li.active {
+  color: #28a745;
+}
+.admin-dashboard .order-control aside div ul li.comming {
+  color: #137fec;
+}
+.admin-dashboard .order-control aside div button {
+  width: calc(100%);
+  padding: 10px 20px;
+  margin-top: 20px;
+  border: none;
+  outline: none;
+
+  /* background-color: #137fece6; */
+
+  background-color: rgb(220, 53, 69, 0.9);
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  border-radius: 9px;
+  transition: 0.3s;
+}
+.admin-dashboard .order-control aside div button:hover {
+  background-color: #dc3545;
+}
+.admin-dashboard .order-control aside div button.not-active {
+  cursor: no-drop;
+}
+
+@media (width < 1200px) {
+  .admin-dashboard .order-control {
+    padding: 2rem 10px;
+  }
+  .admin-dashboard .order-control .title {
+    flex-wrap: wrap;
+  }
+
+  .admin-dashboard .order-control .title h2 {
+    font-size: 1.75rem;
+  }
+  .admin-dashboard .order-control .content .summary h3,
+  .admin-dashboard .order-control.tech-details h3 {
+    font-size: 1.5rem;
+  }
+  .admin-dashboard .order-control .content {
+    flex-wrap: wrap;
+  }
+  .admin-dashboard .order-control .content .summary .image-prob img {
+    object-fit: fill;
+  }
+  .admin-dashboard .order-control .content .tech-details a {
+    width: 100%;
+  }
+  .admin-dashboard .order-control aside {
+    width: 100%;
+  }
+  .admin-dashboard .order-control aside > div {
+    width: 100%;
+  }
+}
