@@ -41,7 +41,7 @@ export const categoriesApi = createApi({
       }),
     }),
     getCategoryById: builder.query({
-      query: (id) => ({
+      query: ({ id }) => ({
         url: `${BaseDepartmentUrl}/${id}`,
         headers: {
           Authorization: `Bearer ${token}`,
