@@ -45,8 +45,8 @@ export default function Verification() {
       const code = otp.join("");
       if (code.length === 4) {
         const res = await axios.post(
-          `${BaseUrl}/${VerifyEmail}/${code}`,
-          {},
+          `${BaseUrl}/${VerifyEmail}?code=${code.toString()}`,
+          { code },
           {
             headers: {
               Authorization: `Bearer ${token}`,
