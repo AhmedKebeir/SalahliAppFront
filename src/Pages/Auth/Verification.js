@@ -50,6 +50,7 @@ export default function Verification() {
           {
             headers: {
               Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
             },
           }
         );
