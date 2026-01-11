@@ -27,7 +27,7 @@ export default function Category() {
     data: department,
     isLoading: isLoadingDepartment,
     isFetching: isFetchingDepartment,
-  } = useGetCategoryByIdQuery(params.id);
+  } = useGetCategoryByIdQuery({ id: params.id });
 
   const {
     data: technicians,
