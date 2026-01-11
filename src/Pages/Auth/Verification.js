@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 export default function Verification() {
   const [loading, setLoading] = useState(false);
   const cookie = Cookie();
-  const token = cookie.get("token");
+
   const nav = useNavigate();
   const [error, setError] = useState(null);
   const inputRefs = [useRef(), useRef(), useRef(), useRef()];
@@ -44,9 +44,10 @@ export default function Verification() {
     try {
       const code = otp.join("");
       if (code.length === 4) {
+        const token = cookie.get("token");
         const res = await axios.post(
-          `${BaseUrl}/${VerifyEmail}?code=${code.toString()}`,
-          { code },
+          `${BaseUrl}/${VerifyEmail}?code=${code}`,
+          {},
           {
             headers: {
               Authorization: `Bearer ${token}`,
