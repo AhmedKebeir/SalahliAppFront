@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 export default function Verification() {
   const [loading, setLoading] = useState(false);
   const cookie = Cookie();
+  const token = cookie.get("token");
   const nav = useNavigate();
   const [error, setError] = useState(null);
   const inputRefs = [useRef(), useRef(), useRef(), useRef()];
@@ -35,7 +36,6 @@ export default function Verification() {
       inputRefs[index - 1].current.focus(); // الانتقال للحقل السابق عند الحذف
     }
   };
-  console.log(otp);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -49,7 +49,7 @@ export default function Verification() {
           {},
           {
             headers: {
-              Authorization: `Bearer ${cookie.get("token")}`,
+              Authorization: `Bearer ${token}`,
             },
           }
         );
