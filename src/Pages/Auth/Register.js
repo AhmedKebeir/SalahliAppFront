@@ -10,9 +10,12 @@ import axios from "axios";
 import { BaseUrl, RegisterUser } from "../../APIs/Api";
 import { FaEyeSlash } from "react-icons/fa6";
 import Cookie from "cookie-universal";
+import { useDispatch } from "react-redux";
+import { currentUserApi } from "../../store/services/CurrentUser";
 
 export default function Register() {
   const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
   const cookie = Cookie();
   const nav = useNavigate();
   const [form, setForm] = useState({
@@ -46,11 +49,12 @@ export default function Register() {
       const res = await axios.post(`${BaseUrl}/${RegisterUser}`, form);
       if (res.status === 200) {
         cookie.set("token", res.data.token);
+        dispatch(currentUserApi.util.resetApiState());
         nav("/verify");
       }
       console.log(res);
     } catch (err) {
-      setErr(err.resposne.message[0]);
+      setErr(err.response.message[0]);
     } finally {
       setLoading(false);
     }

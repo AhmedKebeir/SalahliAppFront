@@ -55,6 +55,7 @@ export default function Verification() {
             },
           }
         );
+        console.log(res);
         if (res.status === 200) {
           cookie.set("token", res.data.token);
           nav("/address");

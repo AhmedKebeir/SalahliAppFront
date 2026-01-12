@@ -6,7 +6,7 @@ export const CurrentUser = "account/current";
 export const VerifyEmail = "account/verify";
 export const AddAddress = "account/addAddress";
 export const UpdateImage = "account/updateimage";
-export const DeleteAddress = "account/deleteaddress";
+export const DeleteAddress = "account/address";
 export const UpdateProfile = "account/updateprofile";
 
 //User

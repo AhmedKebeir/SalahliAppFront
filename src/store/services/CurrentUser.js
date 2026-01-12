@@ -19,17 +19,9 @@ export const currentUserApi = createApi({
   }),
   endpoints: (builder) => ({
     getCurrentUser: builder.query({
-      query: () => {
-        const cookie = Cookie();
-        const token = cookie.get("token");
-
-        return {
-          url: CurrentUser,
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        };
-      },
+      query: () => ({
+        url: CurrentUser,
+      }),
       transformResponse: (response) => response,
     }),
   }),

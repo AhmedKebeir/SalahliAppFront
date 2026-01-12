@@ -129,14 +129,13 @@ export default function UserProfile() {
 
   const handleDeleteAddress = async (item) => {
     try {
-      const res = await axios.put(
+      const res = await axios.delete(
         `${BaseUrl}/${DeleteAddress}/${parseInt(item)}`,
-        {},
         {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
-      if (res.status === 200) {
+      if (res.status === 204) {
         refetch();
       }
       console.log(res);
@@ -183,7 +182,7 @@ export default function UserProfile() {
       const res = await axios.delete(`${BaseUrl}/${BaseTechniciansUrl}/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      if ((res.status = 200)) {
+      if (res.status === 200) {
         refetchTechnician();
       }
     } catch (err) {
