@@ -58,6 +58,7 @@ export default function TechnicianControl() {
     data: technicians,
     isLoading,
     isFetching,
+    refetch,
   } = useGetTopTechniciansApiQuery({
     pageSize: 8,
     pageIndex: page,
@@ -167,6 +168,7 @@ export default function TechnicianControl() {
         console.log(res);
         if (res.status === 200) {
           // dispatch(featchAllTechnicians({ pageIndex: page }));
+          refetch();
           setShowUpdatePoint(false);
           setTechnicianId(null);
           setPoints("");

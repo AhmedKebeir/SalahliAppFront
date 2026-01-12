@@ -264,9 +264,16 @@ export default function Header() {
                   </li>
                 ) : (
                   <li>
-                    <button onClick={() => navigate("/technician-dashboard")}>
-                      لوحة التحكم
-                    </button>
+                    {currentUser?.role === "Technician" && (
+                      <button onClick={() => navigate("/technician-dashboard")}>
+                        لوحة التحكم
+                      </button>
+                    )}
+                    {currentUser?.role === "Admin" && (
+                      <button onClick={() => navigate("/admin-dashboard")}>
+                        لوحة التحكم
+                      </button>
+                    )}
                   </li>
                 )}
 
