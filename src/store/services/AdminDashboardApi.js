@@ -16,6 +16,16 @@ export const adminDashboardApi = createApi({
   reducerPath: "adminDashboardApi",
   baseQuery: fetchBaseQuery({
     baseUrl: BaseUrl,
+    prepareHeaders: (headers) => {
+      const cookie = Cookie();
+      const token = cookie.get("token");
+
+      if (token) {
+        headers.set("Authorization", `Bearer ${token}`);
+      }
+
+      return headers;
+    },
   }),
   endpoints: (builder) => ({
     getAdminDashboard: builder.query({

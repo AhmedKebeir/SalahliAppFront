@@ -1,13 +1,17 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Logo from "../../Components/Logo";
 import axios from "axios";
-import { BaseUrl, VerifyEmail } from "../../APIs/Api";
+import { BaseUrl, ResendVerifyEmail, VerifyEmail } from "../../APIs/Api";
 import Cookie from "cookie-universal";
 import { useNavigate } from "react-router-dom";
 
 export default function Verification() {
   const [loading, setLoading] = useState(false);
   const cookie = Cookie();
+  const RESEND_TIME = 60;
+
+  const [seconds, setSeconds] = useState(RESEND_TIME);
+  const [canResend, setCanResend] = useState(false);
 
   const nav = useNavigate();
   const [error, setError] = useState(null);
@@ -70,6 +74,42 @@ export default function Verification() {
     }
   };
 
+  useEffect(() => {
+    if (seconds === 0) {
+      setCanResend(true);
+      return;
+    }
+
+    const timer = setInterval(() => {
+      setSeconds((prev) => prev - 1);
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [seconds]);
+
+  const handleResend = async () => {
+    const token = cookie.get("token");
+    if (!canResend || !token) return;
+
+    try {
+      setCanResend(false);
+      setSeconds(RESEND_TIME);
+
+      const res = await axios.post(
+        `${BaseUrl}/${ResendVerifyEmail}`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log(res);
+    } catch (err) {
+      setError("حدث خطأ أثناء إعادة الإرسال");
+    }
+  };
+
   return (
     <div className="verify">
       <div className="container">
@@ -99,8 +139,16 @@ export default function Verification() {
         </form>
         <div className="resend">
           لم تستلم الرمز؟
-          <button>إعادة إرسال الرمز </button>
-          <span>00:59</span>
+          <button
+            onClick={handleResend}
+            disabled={!canResend}
+            className={!canResend ? "disabled" : ""}
+          >
+            إعادة إرسال الرمز{" "}
+          </button>
+          {!canResend && (
+            <span>00:{seconds < 10 ? `0${seconds}` : seconds}</span>
+          )}
         </div>
       </div>
     </div>

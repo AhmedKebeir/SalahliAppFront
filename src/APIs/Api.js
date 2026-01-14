@@ -4,6 +4,7 @@ export const LoginUser = "account/login";
 export const RegisterUser = "account/register";
 export const CurrentUser = "account/current";
 export const VerifyEmail = "account/verify";
+export const ResendVerifyEmail = "account/resendcode";
 export const AddAddress = "account/addAddress";
 export const UpdateImage = "account/updateimage";
 export const DeleteAddress = "account/address";

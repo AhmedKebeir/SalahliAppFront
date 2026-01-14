@@ -36,8 +36,9 @@ export default function OverviewAdmin() {
     }).format(date);
   }
 
-  const lastOrdersShow = Array.isArray(overview?.lastOrders)
-    ? overview.lastOrders.map((item) => (
+  const lastOrdersShow =
+    Array.isArray(overview?.lastOrders) && overview?.lastOrders.length > 0 ? (
+      overview.lastOrders.map((item) => (
         <tr key={item?.id}>
           <td>{item?.id}</td>
           <td>{item?.user?.displayName || "بدون اسم"}</td>
@@ -56,40 +57,48 @@ export default function OverviewAdmin() {
           </td>
         </tr>
       ))
-    : "";
+    ) : (
+      <tr>
+        <td colSpan={7} style={{ textAlign: "center", display: "table-cell" }}>
+          لا يوجد طلبات
+        </td>
+      </tr>
+    );
 
-  const topTechShow = Array.isArray(overview?.topTechnicians)
-    ? overview.topTechnicians.map((item) => (
-        <li key={item?.id}>
-          <Link to={`${item?.id}`}>
-            <div className="data">
-              <img src={item?.image || ""} alt="" />
-              <div className="info">
-                <h4>{item?.displayName || "بدون اسم"}</h4>
-                <p>{item?.experienceYears || 0} سنوات خبرة</p>
+  const topTechShow =
+    Array.isArray(overview?.topTechnicians) &&
+    overview?.topTechnicians.length > 0
+      ? overview.topTechnicians.map((item) => (
+          <li key={item?.id}>
+            <Link to={`${item?.id}`}>
+              <div className="data">
+                <img src={item?.image || ""} alt="" />
+                <div className="info">
+                  <h4>{item?.displayName || "بدون اسم"}</h4>
+                  <p>{item?.experienceYears || 0} سنوات خبرة</p>
+                </div>
               </div>
-            </div>
 
-            <div className="rate">
-              <Rating
-                name="half-rating"
-                defaultValue={0}
-                precision={0.5}
-                max={1}
-                readOnly
-              />
-              <span>{item?.averageRating || 0}</span>
-            </div>
-          </Link>
-        </li>
-      ))
-    : "";
+              <div className="rate">
+                <Rating
+                  name="half-rating"
+                  defaultValue={0}
+                  precision={0.5}
+                  max={1}
+                  readOnly
+                />
+                <span>{item?.averageRating || 0}</span>
+              </div>
+            </Link>
+          </li>
+        ))
+      : "";
 
   const techs = (
     <div className="summry-technician">
       <div className="title">
         <h3>ملخص أداء الفنيين </h3>
-        <Link to="">عرض الكل</Link>
+        <Link to="technicians">عرض الكل</Link>
       </div>
       <ul>{topTechShow}</ul>
     </div>
@@ -137,7 +146,7 @@ export default function OverviewAdmin() {
             <div className="last-orders">
               <div className="title">
                 <h3>أحدث الطلبات</h3>
-                <Link to="">عرض الكل </Link>
+                <Link to="orders">عرض الكل </Link>
               </div>
               <div className="table">
                 <table>

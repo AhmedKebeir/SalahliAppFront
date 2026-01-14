@@ -610,6 +610,11 @@
   cursor: pointer;
 }
 
+.verify .container .resend button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .user-image .container form .image {
   position: relative;
   width: 200px;
