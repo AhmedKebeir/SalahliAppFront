@@ -8,19 +8,23 @@ import "../../Css/Auth.css";
 import { useState } from "react";
 import { FaEyeSlash } from "react-icons/fa6";
 import axios from "axios";
-import { BaseUrl, LoginUser } from "../../APIs/Api";
+import {
+  BaseUrl,
+  ForgetPasswordApi,
+  LoginUser,
+  ResetPasswordApi,
+} from "../../APIs/Api";
 import Cookie from "cookie-universal";
 import { useDispatch } from "react-redux";
 import { currentUserApi } from "../../store/services/CurrentUser";
 
-export default function Login() {
-  const nav = useNavigate();
+export default function NewResetPassword() {
   const cookie = Cookie();
-  const token = cookie.get("token");
+  const nav = useNavigate();
   const dispatch = useDispatch();
   const [form, setForm] = useState({
-    email: "",
     password: "",
+    confirmPassword: "",
   });
   const [loading, setLoading] = useState(false);
   const [show, setShow] = useState(false);
@@ -32,12 +36,24 @@ export default function Login() {
   async function handelSubmit(e) {
     e.preventDefault();
     setLoading(true);
+    if (form.password === form.confirmPassword) {
+      setErr(null);
+    } else {
+      setErr("كلمتان المرور غير متطابقان");
+      return;
+    }
     try {
-      const res = await axios.post(`${BaseUrl}/${LoginUser}`, form);
-      console.log(res);
+      const token = sessionStorage.getItem("reset-token");
+      const email = sessionStorage.getItem("forget-password-email");
+      const res = await axios.post(`${BaseUrl}/${ResetPasswordApi}`, {
+        token,
+        email,
+        newpassword: form.password,
+      });
       if (res.status === 200) {
         cookie.set("token", res.data.token);
-
+        sessionStorage.removeItem("reset-token");
+        sessionStorage.removeItem("forget-password-email");
         dispatch(currentUserApi.util.resetApiState());
         if (res.data.role === "Admin") {
           nav("/admin-dashboard");
@@ -45,9 +61,9 @@ export default function Login() {
           nav("/home");
         }
       }
+      console.log(res);
     } catch (err) {
-      setErr("هناك خطأ في البريد الإلكتروني أو كلمة المرور");
-      console.log(err);
+      console.log(err.response.message);
     } finally {
       setLoading(false);
     }
@@ -56,34 +72,21 @@ export default function Login() {
     <div className="sign d-flex">
       <div className="right">
         <Logo />
-        <h2>تسجيل الدخول إلي حسابك</h2>
-        <p>أهلاً بك مجدداً في صلحلي</p>
+        <h2>تعيين كلمة مرور جديدة</h2>
+        <p>برجاء تعيين كلمة مرور جديدة</p>
         <form onSubmit={handelSubmit}>
-          <label htmlFor="email">اسم المستخدم او البريد الإلكتروني</label>
-          <div className="username">
-            <CiUser />
-
-            <input
-              id="email"
-              type="text"
-              placeholder="ادخل اسم المستخدم أو البريد الإلكتروني"
-              name="email"
-              value={form.email}
-              onChange={handelChange}
-              required
-            />
-          </div>
-          <label htmlFor="password">كلمة المرور</label>
+          <label htmlFor="password">كلمة المرور الجديدة</label>
           <div className="password">
             <span>
               <SlLock />
+
               <input
                 id="password"
                 type={`${show ? "text" : "password"}`}
-                placeholder="ادخل كلمة المرور"
+                placeholder="ادخل كلمة المرور الجديدة"
                 name="password"
-                value={form.password}
                 onChange={handelChange}
+                value={form.password}
                 required
               />
             </span>
@@ -93,26 +96,29 @@ export default function Login() {
               <AiOutlineEye onClick={() => setShow(true)} />
             )}
           </div>
-          {err ? <div className="err">{err}</div> : ""}
-          <div className={`remmember-my ${err ? "" : "err-active"}`}>
-            <div>
-              <input id="remmember" type="checkbox" />
-              <label htmlFor="remmember">تذكرني</label>
-            </div>
-            <Link to="/forget-password">نسيت كلمة السر؟</Link>
+          <label htmlFor="confirm">تأكيد كلمة المرور الجديدة</label>
+          <div className="password">
+            <span>
+              <SlLock />
+
+              <input
+                id="confirm"
+                type={`${show ? "text" : "password"}`}
+                placeholder="اعد كتابة كلمة المرور الجديدة"
+                name="confirmPassword"
+                onChange={handelChange}
+                value={form.confirmPassword}
+                required
+              />
+            </span>
           </div>
+
+          {err ? <div className="err">{err}</div> : ""}
+
           <button type="submit" className="submit-btn" disabled={loading}>
-            {loading ? <span className="btn-loader"></span> : "تسجيل الدخول"}{" "}
+            {loading ? <span className="btn-loader"></span> : "تعيين"}
           </button>
         </form>
-        <div className="other">
-          <span>أو سجل الدخول باستخدام</span>
-        </div>
-        <div className="sign-google">المتابعة باستخدام جوجل</div>
-        <div className="create">
-          ليس لديك حساب؟
-          <Link to="/account-type"> إنشاء حساب جديد</Link>
-        </div>
       </div>
       <aside>
         <h2>صلحلي</h2>

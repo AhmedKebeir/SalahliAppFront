@@ -8,19 +8,16 @@ import "../../Css/Auth.css";
 import { useState } from "react";
 import { FaEyeSlash } from "react-icons/fa6";
 import axios from "axios";
-import { BaseUrl, LoginUser } from "../../APIs/Api";
+import { BaseUrl, ForgetPasswordApi, LoginUser } from "../../APIs/Api";
 import Cookie from "cookie-universal";
 import { useDispatch } from "react-redux";
 import { currentUserApi } from "../../store/services/CurrentUser";
 
-export default function Login() {
+export default function ForgetPassword() {
   const nav = useNavigate();
-  const cookie = Cookie();
-  const token = cookie.get("token");
   const dispatch = useDispatch();
   const [form, setForm] = useState({
     email: "",
-    password: "",
   });
   const [loading, setLoading] = useState(false);
   const [show, setShow] = useState(false);
@@ -33,21 +30,17 @@ export default function Login() {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await axios.post(`${BaseUrl}/${LoginUser}`, form);
-      console.log(res);
+      const res = await axios.post(
+        `${BaseUrl}/${ForgetPasswordApi}?email=${form.email}`,
+        {}
+      );
       if (res.status === 200) {
-        cookie.set("token", res.data.token);
-
-        dispatch(currentUserApi.util.resetApiState());
-        if (res.data.role === "Admin") {
-          nav("/admin-dashboard");
-        } else {
-          nav("/home");
-        }
+        sessionStorage.setItem("forget-password-email", form.email);
+        nav("/verify-reset-password");
       }
+      console.log(res);
     } catch (err) {
-      setErr("هناك خطأ في البريد الإلكتروني أو كلمة المرور");
-      console.log(err);
+      console.log(err.response.message);
     } finally {
       setLoading(false);
     }
@@ -56,8 +49,8 @@ export default function Login() {
     <div className="sign d-flex">
       <div className="right">
         <Logo />
-        <h2>تسجيل الدخول إلي حسابك</h2>
-        <p>أهلاً بك مجدداً في صلحلي</p>
+        <h2>استرداد كلمة المرور</h2>
+        <p>أدخل بريدك الإلكتروني المسجل في حسابك</p>
         <form onSubmit={handelSubmit}>
           <label htmlFor="email">اسم المستخدم او البريد الإلكتروني</label>
           <div className="username">
@@ -73,45 +66,22 @@ export default function Login() {
               required
             />
           </div>
-          <label htmlFor="password">كلمة المرور</label>
-          <div className="password">
-            <span>
-              <SlLock />
-              <input
-                id="password"
-                type={`${show ? "text" : "password"}`}
-                placeholder="ادخل كلمة المرور"
-                name="password"
-                value={form.password}
-                onChange={handelChange}
-                required
-              />
-            </span>
-            {show ? (
-              <FaEyeSlash onClick={() => setShow(false)} />
-            ) : (
-              <AiOutlineEye onClick={() => setShow(true)} />
-            )}
-          </div>
+
           {err ? <div className="err">{err}</div> : ""}
-          <div className={`remmember-my ${err ? "" : "err-active"}`}>
-            <div>
-              <input id="remmember" type="checkbox" />
-              <label htmlFor="remmember">تذكرني</label>
-            </div>
-            <Link to="/forget-password">نسيت كلمة السر؟</Link>
-          </div>
+
           <button type="submit" className="submit-btn" disabled={loading}>
-            {loading ? <span className="btn-loader"></span> : "تسجيل الدخول"}{" "}
+            {loading ? (
+              <span className="btn-loader"></span>
+            ) : (
+              "استرداد كلمة المرور"
+            )}
           </button>
         </form>
         <div className="other">
-          <span>أو سجل الدخول باستخدام</span>
+          <span>العودة إلى تسجيل الدخول</span>
         </div>
-        <div className="sign-google">المتابعة باستخدام جوجل</div>
         <div className="create">
-          ليس لديك حساب؟
-          <Link to="/account-type"> إنشاء حساب جديد</Link>
+          <Link to="/login"> العودة إلى تسجيل الدخول</Link>
         </div>
       </div>
       <aside>

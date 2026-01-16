@@ -9,6 +9,9 @@ export const AddAddress = "account/addAddress";
 export const UpdateImage = "account/updateimage";
 export const DeleteAddress = "account/address";
 export const UpdateProfile = "account/updateprofile";
+export const ForgetPasswordApi = "account/forget-password";
+export const VerifyResetPasswordApi = "account/verify-reset-password";
+export const ResetPasswordApi = "account/reset-password-with-token";
 
 //User
 export const CountOfOrdersByUserEmail = "order/get-all-count-orders-user";

@@ -40,6 +40,9 @@ import ReviewsTechnicianDashboard from "./Pages/TechnicianDashboard/ReviewsTechn
 import Slide from "./Components/Slide";
 import { useEffect, useState } from "react";
 import AppLoading from "./Components/AppLoading";
+import ForgetPassword from "./Pages/Auth/ForgetPassword";
+import VerifyResetPassword from "./Pages/Auth/VerifyResetPassword";
+import NewResetPassword from "./Pages/Auth/NewResetPassword";
 
 function App() {
   const location = useLocation();
@@ -62,6 +65,12 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/verify" element={<Verification />} />
+        <Route path="/forget-password" element={<ForgetPassword />} />
+        <Route
+          path="/verify-reset-password"
+          element={<VerifyResetPassword />}
+        />
+        <Route path="/new-reset-password" element={<NewResetPassword />} />
 
         <Route element={<RequireAuth role={["User", "Technician", "Admin"]} />}>
           <Route path="/address" element={<Address />} />
