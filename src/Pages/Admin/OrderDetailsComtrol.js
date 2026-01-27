@@ -58,7 +58,7 @@ export default function OrderDetailsComtrol() {
           <p>{order?.technician?.bio}</p>
         </div>
       </div>
-      <Link>عرض الملف الشخصي</Link>
+      <Link to={`/technicians/${order?.technician?.id}`}>عرض الملف الشخصي</Link>
     </div>
   );
 
@@ -87,7 +87,7 @@ export default function OrderDetailsComtrol() {
         const res = await axios.put(
           `${BaseUrl}/${orderApi}/ontheway/${order?.id}`,
           {},
-          { headers: { Authorization: `Bearer ${token}` } }
+          { headers: { Authorization: `Bearer ${token}` } },
         );
         console.log(res);
         if (res.status === 200) {
@@ -104,7 +104,7 @@ export default function OrderDetailsComtrol() {
         const res = await axios.put(
           `${BaseUrl}/${orderApi}/inprogress/${order?.id}`,
           {},
-          { headers: { Authorization: `Bearer ${token}` } }
+          { headers: { Authorization: `Bearer ${token}` } },
         );
         console.log(res);
         if (res.status === 200) {
@@ -121,7 +121,7 @@ export default function OrderDetailsComtrol() {
         const res = await axios.put(
           `${BaseUrl}/${orderApi}/finish/${order?.id}`,
           {},
-          { headers: { Authorization: `Bearer ${token}` } }
+          { headers: { Authorization: `Bearer ${token}` } },
         );
         console.log(res);
         if (res.status === 200) {

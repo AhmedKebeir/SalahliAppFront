@@ -4,6 +4,8 @@ import {
   BaseUrl,
   CountReviewsForTechnician,
   TechnicianReviews,
+  UserOwnsCountReviews,
+  UserOwnsReviews,
   UserReviews,
 } from "../../APIs/Api";
 import Cookie from "cookie-universal";
@@ -14,8 +16,8 @@ const token = cookie.get("token");
 const cleanParams = (params) => {
   return Object.fromEntries(
     Object.entries(params).filter(
-      ([_, v]) => v !== "" && v !== null && v !== undefined
-    )
+      ([_, v]) => v !== "" && v !== null && v !== undefined,
+    ),
   );
 };
 
@@ -117,6 +119,44 @@ export const reviewsApi = createApi({
       },
       transformResponse: (response) => response,
     }),
+
+    getAllUserOwnsReviews: builder.query({
+      query: ({
+        pageIndex,
+        pageSize = 8,
+        sort,
+        orderId,
+        userId,
+        technicianId,
+      }) => {
+        return {
+          url: UserOwnsReviews,
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          params: cleanParams({
+            pageIndex,
+            pageSize,
+            sort,
+            orderId,
+            userId,
+            technicianId,
+          }),
+        };
+      },
+      transformResponse: (response) => response,
+    }),
+    getAllCountUserOwnsReviews: builder.query({
+      query: ({ id }) => {
+        return {
+          url: `${UserOwnsCountReviews}/${id}`,
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        };
+      },
+      transformResponse: (response) => response,
+    }),
   }),
 });
 
@@ -125,4 +165,6 @@ export const {
   useGetAllReviewsByAnyUserQuery,
   useGetAllReviewsByTechnicianIdQuery,
   useGetAllReviewsForTechnicianQuery,
+  useGetAllUserOwnsReviewsQuery,
+  useGetAllCountUserOwnsReviewsQuery,
 } = reviewsApi;

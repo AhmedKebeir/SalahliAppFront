@@ -133,7 +133,7 @@ export default function UserProfile() {
         `${BaseUrl}/${DeleteAddress}/${parseInt(item)}`,
         {
           headers: { Authorization: `Bearer ${token}` },
-        }
+        },
       );
       if (res.status === 204) {
         refetch();
@@ -156,7 +156,7 @@ export default function UserProfile() {
         {},
         {
           headers: { Authorization: `Bearer ${token}` },
-        }
+        },
       );
 
       if (res.status === 200) {
@@ -219,7 +219,7 @@ export default function UserProfile() {
               Authorization: `Bearer ${token}`,
               "Content-Type": "application/json",
             },
-          }
+          },
         );
         if (res.status === 200) {
           setSelectedCategory(false);
@@ -333,7 +333,7 @@ export default function UserProfile() {
                               value={item?.name}
                               onChange={handleCategoryChange}
                               checked={categories.some(
-                                (c) => c.id === Number(item?.id)
+                                (c) => c.id === Number(item?.id),
                               )}
                             />
                           </div>

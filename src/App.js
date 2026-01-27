@@ -43,6 +43,10 @@ import AppLoading from "./Components/AppLoading";
 import ForgetPassword from "./Pages/Auth/ForgetPassword";
 import VerifyResetPassword from "./Pages/Auth/VerifyResetPassword";
 import NewResetPassword from "./Pages/Auth/NewResetPassword";
+import UserProfileView from "./Pages/UserProfileView";
+import OverviewUser from "./Pages/OverviewUser";
+import RatingPageUser from "./Pages/RatingPageUser";
+import TechnicianRating from "./Pages/TechnicianDashboard/TechnicianRating";
 
 function App() {
   const location = useLocation();
@@ -89,6 +93,10 @@ function App() {
           <Route path="/request-success" element={<SendSuccess />} />
           <Route path="/my-orders/:id" element={<RequestDetails />} />
           <Route path="/order-rating/:id" element={<UserRating />} />
+          <Route path="/user-profile/:id" element={<UserProfileView />}>
+            <Route index element={<OverviewUser />} />
+            <Route path="rating" element={<RatingPageUser />} />
+          </Route>
         </Route>
 
         <Route element={<RequireAuth role="Technician" />}>
@@ -97,6 +105,7 @@ function App() {
             <Route path="reviews" element={<ReviewsTechnicianDashboard />} />
             <Route path="orders" element={<OrdersTechnicianControl />} />
             <Route path="orders/:id" element={<OrderDetailsComtrol />} />
+            <Route path="rating/:id" element={<TechnicianRating />} />
           </Route>
         </Route>
 

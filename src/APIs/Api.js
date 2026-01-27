@@ -1,4 +1,5 @@
-export const BaseUrl = "https://salahliapp.runasp.net/api";
+// export const BaseUrl = "https://salahliapp.runasp.net/api";
+export const BaseUrl = "https://localhost:7186/api";
 
 export const LoginUser = "account/login";
 export const RegisterUser = "account/register";
@@ -12,6 +13,8 @@ export const UpdateProfile = "account/updateprofile";
 export const ForgetPasswordApi = "account/forget-password";
 export const VerifyResetPasswordApi = "account/verify-reset-password";
 export const ResetPasswordApi = "account/reset-password-with-token";
+export const UpdatePasswordApi = "account/change-password";
+export const UserProfileApi = "account/user-profile-by-id";
 
 //User
 export const CountOfOrdersByUserEmail = "order/get-all-count-orders-user";
@@ -47,3 +50,8 @@ export const UserReviews = "reviews/user";
 export const TechnicianReviews = "reviews/technician";
 export const AnyUserReviews = "reviews/any-user";
 export const CountReviewsForTechnician = "reviews/technician-count";
+export const UserDoReview = "reviews/user-do-rating";
+export const TechDoReview = "reviews/technician-do-rating";
+
+export const UserOwnsReviews = "reviews/user-reviews";
+export const UserOwnsCountReviews = "reviews/user-count";

@@ -70,7 +70,7 @@ export default function OverviewAdmin() {
     overview?.topTechnicians.length > 0
       ? overview.topTechnicians.map((item) => (
           <li key={item?.id}>
-            <Link to={`${item?.id}`}>
+            <Link to={`/technicians/${item?.id}`}>
               <div className="data">
                 <img src={item?.image || ""} alt="" />
                 <div className="info">

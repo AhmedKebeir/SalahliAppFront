@@ -155,7 +155,8 @@
 
 .Update-profile .container form > div label {
 }
-.Update-profile .container form > div input {
+.Update-profile .container form:first-of-type > div:not(:has(.password)) input,
+.Update-profile .container form > div .password {
   width: 100%;
   flex: 1;
   padding: 15px 15px 15px 0;
@@ -174,14 +175,16 @@
   direction: rtl;
 }
 
-.Update-profile .container form > div label {
+.Update-profile .container form:first-of-type > div label,
+.Update-profile .container .personal-info form > div label {
   display: flex;
   color: #2f4f4f;
   font-size: 1rem;
   margin-bottom: 5px;
 }
 
-.Update-profile .container form > div input:focus {
+.Update-profile .container form:first-of-type > div input:focus,
+.Update-profile .container form > div .password:has(input:focus) {
   border-color: #137fec;
   outline: #137fec;
   background-color: white;
@@ -220,4 +223,32 @@
   .Update-profile .container form > div {
     width: 100%;
   }
+}
+.Update-profile .container .personal-info form > div .password {
+  padding-left: 10px;
+}
+
+.Update-profile .container .personal-info form > div .password,
+.Update-profile .container .personal-info form > div .password > span {
+  display: flex;
+  align-items: center;
+}
+.Update-profile .container .personal-info form > div .password > span {
+  gap: 5px;
+}
+.Update-profile .container .personal-info form > div .password span {
+  flex: 1;
+}
+
+.Update-profile .container .personal-info form > div .password input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background-color: transparent;
+}
+
+.Update-profile .container .personal-info form > .btns,
+.Update-profile .err {
+  width: 100%;
 }

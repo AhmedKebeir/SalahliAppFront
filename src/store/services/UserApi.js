@@ -1,5 +1,9 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { BaseUrl, CountOfOrdersByUserEmail } from "../../APIs/Api";
+import {
+  BaseUrl,
+  CountOfOrdersByUserEmail,
+  UserProfileApi,
+} from "../../APIs/Api";
 import Cookie from "cookie-universal";
 
 const cookie = Cookie();
@@ -31,7 +35,18 @@ export const userApi = createApi({
       },
       transformResponse: (response) => response,
     }),
+    getUserProfileById: builder.query({
+      query: ({ id }) => {
+        return {
+          url: `${UserProfileApi}/${id}`,
+        };
+      },
+      transformResponse: (response) => response,
+    }),
   }),
 });
 
-export const { useGetCountOfOrdersByUserEmailQuery } = userApi;
+export const {
+  useGetCountOfOrdersByUserEmailQuery,
+  useGetUserProfileByIdQuery,
+} = userApi;

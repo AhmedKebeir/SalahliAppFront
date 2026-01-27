@@ -12,6 +12,7 @@ import { Provider } from "react-redux";
 import { store } from "./store/store";
 import { TechnicianProvider } from "./Context/TechnicianProvider";
 import WindowWidthContext from "./Context/WindowWidthContext";
+import { UserProvider } from "./Context/UserProvider";
 
 const theme = createTheme({
   direction: "rtl", // 🔵 تشغيل RTL
@@ -31,14 +32,16 @@ root.render(
           <ThemeProvider theme={theme}>
             <Provider store={store}>
               <TechnicianProvider>
-                <App />
+                <UserProvider>
+                  <App />
+                </UserProvider>
               </TechnicianProvider>
             </Provider>
           </ThemeProvider>
         </CacheProvider>
       </WindowWidthContext>
     </BrowserRouter>
-  </React.StrictMode>
+  </React.StrictMode>,
 );
 
 // If you want to start measuring performance in your app, pass a function

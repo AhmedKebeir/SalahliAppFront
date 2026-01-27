@@ -1,17 +1,16 @@
-import Header from "../Components/Header";
 import { BsClipboard2CheckFill } from "react-icons/bs";
-import "../Css/UserRating.css";
+import "../../Css/UserRating.css";
 import Rating from "@mui/material/Rating";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { useGetOrderDetailsQuery } from "../store/services/ordersApi";
+import { useGetOrderDetailsQuery } from "../../store/services/ordersApi";
 import { useState } from "react";
 import axios from "axios";
-import { BaseUrl, Review, UserDoReview } from "../APIs/Api";
+import { BaseUrl, Review, TechDoReview, UserDoReview } from "../../APIs/Api";
 import Cookie from "cookie-universal";
 import { FaCloudUploadAlt } from "react-icons/fa";
-import AppLoading from "../Components/AppLoading";
+import AppLoading from "../../Components/AppLoading";
 
-export default function UserRating() {
+export default function TechnicianRating() {
   const nav = useNavigate();
   const cookie = Cookie();
   const token = cookie.get("token");
@@ -51,16 +50,15 @@ export default function UserRating() {
       const formData = new FormData();
       formData.append("Comment", comment);
       formData.append("Rating", rating);
-      formData.append("TechnicianId", order?.technician?.id);
+      formData.append("UserId", order?.user?.id);
 
       imageList.forEach((file) => formData.append("OrderImages", file));
       const res = await axios.post(
-        `${BaseUrl}/${UserDoReview}/${order?.id}`,
+        `${BaseUrl}/${TechDoReview}/${order?.id}`,
         formData,
         {
           headers: {
             Authorization: `Bearer ${token}`,
-            "Content-Type": "multipart/form-data",
           },
         },
       );
@@ -79,8 +77,6 @@ export default function UserRating() {
 
   return (
     <>
-      <Header />
-
       <div className="user-rating bg-page">
         {isLoading || isFetching ? (
           <AppLoading heading="جاري تحميل الصفحة..." />
@@ -99,7 +95,7 @@ export default function UserRating() {
             )}
             <div className="container">
               <div className="title">
-                <h1>تقييم الخدمة والفني</h1>
+                <h1>تقييم الخدمة و المستخدم</h1>
                 <p>نقدر رأيك لمساعدتنا في تحسين خدماتنا</p>
                 <div className="serv-name">
                   <BsClipboard2CheckFill />
@@ -109,17 +105,17 @@ export default function UserRating() {
 
               <div className="technician-details">
                 <div className="image">
-                  {order?.technician?.isActive ? <span></span> : ""}
+                  {order?.user?.isActive ? <span></span> : ""}
 
-                  <img src={order?.technician?.image} alt="technician" />
+                  <img src={order?.user?.image} alt="technician" />
                 </div>
                 <div className="technician-info">
-                  <h2>{order?.technician?.displayName}</h2>
+                  <h2>{order?.user?.displayName}</h2>
                   <div className="stars">
                     <Rating
                       name="half-rating"
-                      defaultValue={order?.technician?.averageRating}
-                      value={order?.technician?.averageRating}
+                      defaultValue={order?.user?.averageRating}
+                      value={order?.user?.averageRating}
                       precision={0.5}
                       readOnly
                     />

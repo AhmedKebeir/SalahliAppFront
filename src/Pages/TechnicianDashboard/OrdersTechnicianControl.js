@@ -82,6 +82,14 @@ export default function OrdersTechnicianControl() {
               : "قيد التنفيذ"}
           </td>
           <td>
+            <Link
+              className="details"
+              to={`/technician-dashboard/rating/${item?.id}`}
+            >
+              تقييم المستخدم
+            </Link>
+          </td>
+          <td>
             <Link className="details" to={`${item?.id}`}>
               التفاصيل
             </Link>
@@ -149,6 +157,7 @@ export default function OrdersTechnicianControl() {
                   <th>نوع المشكلة</th>
                   <th>تاريخ الطلب</th>
                   <th>الحالة</th>
+                  <th>التقييم</th>
                   <th>الإجراء</th>
                 </tr>
               </thead>

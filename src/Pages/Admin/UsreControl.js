@@ -69,6 +69,9 @@ export default function USerControl() {
           <td>{item?.email}</td>
           <td>{item?.fullName}</td>
           <td>
+            <Link to={`/user-profile/${item?.id}`}>تفاصيل المستخدم</Link>
+          </td>
+          <td>
             <Link to="">
               <FaRegEdit />
             </Link>
@@ -156,6 +159,7 @@ export default function USerControl() {
                   <th>العنوان</th>
                   <th>الإيميل</th>
                   <th>الاسم الكامل</th>
+                  <th>تفاصيل المستخدم</th>
                   <th>الإجراءات</th>
                 </tr>
               </thead>

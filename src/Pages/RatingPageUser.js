@@ -2,8 +2,10 @@ import Rating from "@mui/material/Rating";
 import Footer from "../Components/Footer";
 import { useTechnician } from "../Context/TechnicianProvider";
 import {
+  useGetAllCountUserOwnsReviewsQuery,
   useGetAllReviewsByAnyUserQuery,
   useGetAllReviewsByTechnicianIdQuery,
+  useGetAllUserOwnsReviewsQuery,
 } from "../store/services/ReviewsApi";
 import { useGetTechnicianByIdQuery } from "../store/services/TechniciansApi";
 import LinearProgress, {
@@ -13,25 +15,30 @@ import { styled } from "@mui/material/styles";
 import { useState } from "react";
 import Pagination from "@mui/material/Pagination";
 import AppLoading from "../Components/AppLoading";
+import { useUser } from "../Context/UserProvider";
+import { useGetUserProfileByIdQuery } from "../store/services/UserApi";
 
-export default function RatingPageTechnician() {
+export default function RatingPageUser() {
   const savedPage =
-    parseInt(sessionStorage.getItem("pageIndexRatingTech")) || 1;
+    parseInt(sessionStorage.getItem("pageIndexRatingUser")) || 1;
   const [page, setPage] = useState(savedPage);
   const [status, setStatus] = useState("");
-  const { technicianId } = useTechnician();
-  const { data: technician } = useGetTechnicianByIdQuery(
-    { id: technicianId },
-    { skip: !technicianId }, // لو مفيش id => مايبعتش request
+  const { userId } = useUser();
+  const { data: user } = useGetUserProfileByIdQuery(
+    { id: userId },
+    { skip: !userId }, // لو مفيش id => مايبعتش request
   );
 
-  const { data: reviewsCount } = useGetAllReviewsByTechnicianIdQuery(
+  console.log(user);
+
+  const { data: reviewsCount } = useGetAllCountUserOwnsReviewsQuery(
     {
-      id: technician?.id,
+      id: user?.user?.id,
     },
-    { skip: !technicianId },
+    { skip: !userId },
   );
 
+  console.log(reviewsCount);
   const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
     height: 10,
     borderRadius: 5,
@@ -50,11 +57,11 @@ export default function RatingPageTechnician() {
     data: ratings,
     isLoading,
     isFetching,
-  } = useGetAllReviewsByAnyUserQuery({
+  } = useGetAllUserOwnsReviewsQuery({
     pageIndex: page,
     pageSize: 8,
 
-    technicianId: technician?.id,
+    userId: user?.user?.id,
   });
 
   console.log(ratings);
@@ -64,10 +71,9 @@ export default function RatingPageTechnician() {
   const handleChange = (event, value) => {
     if (value === page) return;
     setPage(value);
-    sessionStorage.setItem("pageIndexRatingTech", value);
+    sessionStorage.setItem("pageIndexRatingUser", value);
   };
 
-  console.log(technician);
   function timeAgo(dateString) {
     const now = new Date();
     const date = new Date(dateString);
@@ -92,16 +98,21 @@ export default function RatingPageTechnician() {
         <div className="rating-item">
           <div className="information">
             <div
-              className={`image ${item?.user?.image !== "" ? "" : "no-image"}`}
+              className={`image ${
+                item?.technician?.image !== "" ? "" : "no-image"
+              }`}
             >
-              {item?.user?.image !== "" ? (
-                <img src={item?.user?.image} alt={item?.user?.displayName} />
+              {item?.technician?.image !== "" ? (
+                <img
+                  src={item?.technician?.image}
+                  alt={item?.technician?.displayName}
+                />
               ) : (
-                item?.user?.displayName.split("")[0]
+                item?.technician?.displayName.split("")[0]
               )}
             </div>
             <div className="info">
-              <h3>{item?.user?.displayName}</h3>
+              <h3>{item?.technician?.displayName}</h3>
               <p>
                 {timeAgo(item?.date)} <span> الخدمة {item?.orderTitle}</span>
               </p>
@@ -121,7 +132,7 @@ export default function RatingPageTechnician() {
           </div>
           <div className="review-image">
             {item?.imageUrl !== "" ? (
-              <img src={item?.imageUrl} alt={item?.user?.displayName} />
+              <img src={item?.imageUrl} alt={item?.technician?.displayName} />
             ) : (
               ""
             )}
@@ -141,12 +152,12 @@ export default function RatingPageTechnician() {
               <div className="rate-char">
                 <div>
                   <span className="avg-rate">
-                    {Number(technician?.averageRating) || 0}.0
+                    {Number(user?.user?.averageRating) || 0}.0
                   </span>
                   <div className="stars">
                     <Rating
                       name="rating"
-                      value={Number(technician?.averageRating) || 0}
+                      value={Number(user?.user?.averageRating) || 0}
                       precision={0.5}
                       readOnly
                     />
