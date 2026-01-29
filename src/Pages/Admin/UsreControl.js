@@ -6,12 +6,13 @@ import { FaRegEdit } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { MdDelete } from "react-icons/md";
 import { Link, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { featchAllUsers } from "../../store/slices/dashboardSlices/overview-slice";
 import { useGetAllUsersApiQuery } from "../../store/services/AdminDashboardApi";
 import AppLoading from "../../Components/AppLoading";
 
 export default function USerControl() {
+  const topRef = useRef(null);
   const savedPage = parseInt(sessionStorage.getItem("pageIndexUsers")) || 1;
   const [page, setPage] = useState(savedPage);
 
@@ -33,6 +34,13 @@ export default function USerControl() {
   // }, [dispatch, page, search, city, center, sort]);
 
   // console.log(users);
+
+  useEffect(() => {
+    topRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }, [page]);
 
   const {
     data: users,
@@ -148,7 +156,7 @@ export default function USerControl() {
           </div>
         </div>
 
-        <div className="table  users-table">
+        <div className="table  users-table" ref={topRef}>
           {isLoading || isFetching ? (
             <AppLoading heading="جاري تحميل المستخدمين" />
           ) : (

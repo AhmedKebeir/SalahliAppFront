@@ -1,5 +1,5 @@
 import Pagination from "@mui/material/Pagination";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import { useDispatch, useSelector } from "react-redux";
 import { featchAllDepartment } from "../../store/slices/department-slice";
@@ -12,6 +12,7 @@ import { useGetAllCategoryQuery } from "../../store/services/CategoriesApi";
 import AppLoading from "../../Components/AppLoading";
 
 export default function OrdersControl() {
+  const topRef = useRef(null);
   const savedPage = parseInt(sessionStorage.getItem("pageIndexOrders")) || 1;
   const [page, setPage] = useState(savedPage);
   const [departmentsSelect, setDepartmentsSelect] = useState("");
@@ -49,6 +50,13 @@ export default function OrdersControl() {
   // useEffect(() => {
   //   dispatch(featchAllDepartment());
   // }, [dispatch]);
+
+  useEffect(() => {
+    topRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }, [page]);
 
   const {
     data: departments,
@@ -200,7 +208,7 @@ export default function OrdersControl() {
               </div>
             </div>
 
-            <div className="table">
+            <div className="table" ref={topRef}>
               {isFetchingOrders || isLoadingOrders ? (
                 <AppLoading headind="جاري تحميل الطلبات" />
               ) : (

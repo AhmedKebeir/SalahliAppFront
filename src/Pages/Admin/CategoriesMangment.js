@@ -5,18 +5,26 @@ import { FaRegEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import Pagination from "@mui/material/Pagination";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { featchAllDepartment } from "../../store/slices/dashboardSlices/overview-slice";
 import { useGetTopFourCategoriesQuery } from "../../store/services/CategoriesApi";
 import AppLoading from "../../Components/AppLoading";
 
 export default function CategoriesMangment() {
+  const topRef = useRef(null);
   const savedPage =
     parseInt(sessionStorage.getItem("pageIndexDepartments")) || 1;
   const [page, setPage] = useState(savedPage);
 
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("");
+
+  useEffect(() => {
+    topRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }, [page]);
   // const departments = useSelector((state) => state.dashboard);
   // const dispatch = useDispatch();
 
@@ -37,7 +45,7 @@ export default function CategoriesMangment() {
   });
 
   const totalPages = Math.ceil(
-    (departments?.count || 1) / (departments?.pageSize || 8)
+    (departments?.count || 1) / (departments?.pageSize || 8),
   );
   const handleChange = (event, value) => {
     if (value === page) return;
@@ -109,7 +117,7 @@ export default function CategoriesMangment() {
               </select>
             </div>
           </div>
-          <div className="table">
+          <div className="table" ref={topRef}>
             {isFetching || isLoading ? (
               <AppLoading heading="جاري تحميل الصفحة" />
             ) : (

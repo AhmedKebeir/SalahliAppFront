@@ -1,6 +1,6 @@
 import Pagination from "@mui/material/Pagination";
 import Rating from "@mui/material/Rating";
-import { use, useEffect, useState } from "react";
+import { use, useEffect, useRef, useState } from "react";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { CiSearch } from "react-icons/ci";
 import { FaRegEdit } from "react-icons/fa";
@@ -16,6 +16,7 @@ import { useGetTopTechniciansApiQuery } from "../../store/services/TechniciansAp
 import AppLoading from "../../Components/AppLoading";
 
 export default function TechnicianControl() {
+  const topRef = useRef(null);
   const cookie = Cookie();
   const token = cookie.get("token");
   const savedPage =
@@ -54,6 +55,13 @@ export default function TechnicianControl() {
   //   dispatch(featchAllDepartment());
   // }, [dispatch]);
 
+  useEffect(() => {
+    topRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }, [page]);
+
   const {
     data: technicians,
     isLoading,
@@ -71,7 +79,7 @@ export default function TechnicianControl() {
   });
 
   const totalPages = Math.ceil(
-    (technicians?.count || 1) / (technicians?.pageSize || 8)
+    (technicians?.count || 1) / (technicians?.pageSize || 8),
   );
 
   const dataShow = Array.isArray(technicians?.data)
@@ -163,7 +171,7 @@ export default function TechnicianControl() {
             headers: {
               Authorization: `Bearer ${token}`,
             },
-          }
+          },
         );
         console.log(res);
         if (res.status === 200) {
@@ -272,7 +280,7 @@ export default function TechnicianControl() {
           </div>
         </div>
 
-        <div className="table">
+        <div className="table" ref={topRef}>
           {isLoading || isFetching ? (
             <AppLoading heading="جاري جلب الفنيين" />
           ) : (

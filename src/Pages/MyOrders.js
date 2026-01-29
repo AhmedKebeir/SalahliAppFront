@@ -2,12 +2,13 @@ import { AiOutlinePlusCircle } from "react-icons/ai";
 import Header from "../Components/Header";
 import { Link, NavLink } from "react-router-dom";
 import "../Css/MyOrder.css";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Pagination from "@mui/material/Pagination";
 import { useGetUserOrdersQuery } from "../store/services/ordersApi";
 import AppLoading from "../Components/AppLoading";
 
 export default function MyOrders() {
+  const topRef = useRef(null);
   const savedPage =
     parseInt(sessionStorage.getItem("pageIndexOrdersUser")) || 1;
   const [page, setPage] = useState(savedPage);
@@ -87,6 +88,13 @@ export default function MyOrders() {
         </td>
       </tr>
     );
+  useEffect(() => {
+    topRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }, [page]);
+
   return (
     <>
       <Header />
@@ -131,7 +139,7 @@ export default function MyOrders() {
             </span>
           </div>
 
-          <div className="table">
+          <div className="table" ref={topRef}>
             {isLoading || isFetching ? (
               <AppLoading />
             ) : (

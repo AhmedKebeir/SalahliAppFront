@@ -1,5 +1,5 @@
 import Pagination from "@mui/material/Pagination";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import { useDispatch, useSelector } from "react-redux";
 import { featchAllDepartment } from "../../store/slices/department-slice";
@@ -13,6 +13,7 @@ import AppLoading from "../../Components/AppLoading";
 
 export default function OrdersTechnicianControl() {
   const [searchParams] = useSearchParams();
+  const topRef = useRef(null);
 
   const savedPage = parseInt(sessionStorage.getItem("pageIndexOrders")) || 1;
   const [page, setPage] = useState(savedPage);
@@ -111,6 +112,13 @@ export default function OrdersTechnicianControl() {
   };
 
   const totalPages = Math.ceil((orders?.count || 1) / (orders?.pageSize || 8));
+
+  useEffect(() => {
+    topRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }, [page]);
   return (
     <div className="tech-controle bg-page">
       <div className="title">
@@ -144,7 +152,7 @@ export default function OrdersTechnicianControl() {
           </div>
         </div>
 
-        <div className="table">
+        <div className="table" ref={topRef}>
           {isLoading || isFetching ? (
             <AppLoading heading="جاري جلب الطلبات" />
           ) : (

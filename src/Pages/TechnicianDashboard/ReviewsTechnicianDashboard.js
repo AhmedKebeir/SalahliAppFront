@@ -11,11 +11,12 @@ import LinearProgress, {
   linearProgressClasses,
 } from "@mui/material/LinearProgress";
 import { styled } from "@mui/material/styles";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Pagination from "@mui/material/Pagination";
 import AppLoading from "../../Components/AppLoading";
 
 export default function ReviewsTechnicianDashboard() {
+  const topRef = useRef(null);
   const savedPage =
     parseInt(sessionStorage.getItem("pageIndexRatingTechDashboard")) || 1;
   const [page, setPage] = useState(savedPage);
@@ -45,7 +46,7 @@ export default function ReviewsTechnicianDashboard() {
   });
 
   const totalPages = Math.ceil(
-    (ratings?.count || 1) / (ratings?.pageSize || 8)
+    (ratings?.count || 1) / (ratings?.pageSize || 8),
   );
   const handleChange = (event, value) => {
     if (value === page) return;
@@ -114,6 +115,13 @@ export default function ReviewsTechnicianDashboard() {
         </div>
       ))
     : [];
+  useEffect(() => {
+    topRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }, [page]);
+
   return (
     <div className="reviews-dashboard bg-page">
       <div className="title">
@@ -156,7 +164,7 @@ export default function ReviewsTechnicianDashboard() {
                         Number(
                           (ratings?.reviewsStatistics?.fiveStar /
                             ratings?.reviewsStatistics?.totalReviews) *
-                            100
+                            100,
                         ) || 0
                       }
                       sx={{
@@ -169,7 +177,7 @@ export default function ReviewsTechnicianDashboard() {
                       {Number(
                         (ratings?.reviewsStatistics?.fiveStar /
                           ratings?.reviewsStatistics?.totalReviews) *
-                          100
+                          100,
                       ) || 0}
                       %
                     </span>
@@ -182,7 +190,7 @@ export default function ReviewsTechnicianDashboard() {
                         Number(
                           (ratings?.reviewsStatistics?.fourStar /
                             ratings?.reviewsStatistics?.totalReviews) *
-                            100
+                            100,
                         ) || 0
                       }
                       sx={{
@@ -195,7 +203,7 @@ export default function ReviewsTechnicianDashboard() {
                       {Number(
                         (ratings?.reviewsStatistics?.fourStar /
                           ratings?.reviewsStatistics?.totalReviews) *
-                          100
+                          100,
                       ) || 0}
                       %
                     </span>
@@ -208,7 +216,7 @@ export default function ReviewsTechnicianDashboard() {
                         Number(
                           (ratings?.reviewsStatistics?.threeStar /
                             ratings?.reviewsStatistics?.totalReviews) *
-                            100
+                            100,
                         ) || 0
                       }
                       sx={{
@@ -221,7 +229,7 @@ export default function ReviewsTechnicianDashboard() {
                       {Number(
                         (ratings?.reviewsStatistics?.threeStar /
                           ratings?.reviewsStatistics?.totalReviews) *
-                          100
+                          100,
                       ) || 0}
                       %
                     </span>
@@ -234,7 +242,7 @@ export default function ReviewsTechnicianDashboard() {
                         Number(
                           (ratings?.reviewsStatistics?.twoStar /
                             ratings?.reviewsStatistics?.totalReviews) *
-                            100
+                            100,
                         ) || 0
                       }
                       sx={{
@@ -247,7 +255,7 @@ export default function ReviewsTechnicianDashboard() {
                       {Number(
                         (ratings?.reviewsStatistics?.twoStar /
                           ratings?.reviewsStatistics?.totalReviews) *
-                          100
+                          100,
                       ) || 0}
                       %
                     </span>
@@ -260,7 +268,7 @@ export default function ReviewsTechnicianDashboard() {
                         Number(
                           (ratings?.reviewsStatistics?.oneStar /
                             ratings?.reviewsStatistics?.totalReviews) *
-                            100
+                            100,
                         ) || 0
                       }
                       sx={{
@@ -273,7 +281,7 @@ export default function ReviewsTechnicianDashboard() {
                       {Number(
                         (ratings?.reviewsStatistics?.oneStar /
                           ratings?.reviewsStatistics?.totalReviews) *
-                          100
+                          100,
                       ) || 0}
                       %
                     </span>
@@ -282,7 +290,7 @@ export default function ReviewsTechnicianDashboard() {
               </div>
             </div>
 
-            <div className="rating-box">
+            <div className="rating-box" ref={topRef}>
               <div className="rating-list">{reviewItemShow}</div>
               <div className="pagin">
                 <Pagination
