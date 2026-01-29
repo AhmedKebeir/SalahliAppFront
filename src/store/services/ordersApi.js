@@ -8,8 +8,8 @@ const token = cookie.get("token");
 const cleanParams = (params) => {
   return Object.fromEntries(
     Object.entries(params).filter(
-      ([_, v]) => v !== "" && v !== null && v !== undefined
-    )
+      ([_, v]) => v !== "" && v !== null && v !== undefined,
+    ),
   );
 };
 
@@ -148,6 +148,8 @@ export const ordersApi = createApi({
 
       transformResponse: (response) => response,
     }),
+
+    //accept order
   }),
 });
 

@@ -2,6 +2,8 @@ import { useState } from "react";
 import { AcceptOrder, BaseUrl, orderApi, RejectOrder } from "../APIs/Api";
 import axios from "axios";
 import Cookie from "cookie-universal";
+import { useDispatch } from "react-redux";
+import { ordersApi } from "../store/services/ordersApi";
 
 export default function AcceptOrderBox({
   showAccept = false,
@@ -9,6 +11,7 @@ export default function AcceptOrderBox({
   orderId = null,
   onClose,
 }) {
+  const dispatch = useDispatch();
   const cookie = Cookie();
   const token = cookie.get("token");
   const [selectedDate, setSelectedDate] = useState(""); // YYYY-MM-DD
@@ -24,18 +27,25 @@ export default function AcceptOrderBox({
       // تحويل إلى DateTimeOffset باستخدام offset الجهاز
       const offsetMinutes = dateTime.getTimezoneOffset(); // بالـ minutes
       const dateTimeOffset = new Date(
-        dateTime.getTime() - offsetMinutes * 60 * 1000
+        dateTime.getTime() - offsetMinutes * 60 * 1000,
       );
 
       const res = await axios.put(
         `${BaseUrl}/${orderApi}/${AcceptOrder}/${orderId}`,
         { scheduledDate: dateTimeOffset.toISOString() },
-        { headers: { Authorization: `Bearer ${token}` } }
+        { headers: { Authorization: `Bearer ${token}` } },
       );
       if (res.status === 200) {
         onCancel();
+
         setSelectedDate("");
         setSelectedTime("");
+        dispatch(
+          ordersApi.endpoints.getOrderDetails.initiate(
+            { id: orderId },
+            { forceRefetch: true },
+          ),
+        );
       }
     } catch (err) {
       setErr(err.response.data.message);
@@ -52,12 +62,18 @@ export default function AcceptOrderBox({
       const res = await axios.put(
         `${BaseUrl}/${orderApi}/${RejectOrder}/${orderId}`,
         {},
-        { headers: { Authorization: `Bearer ${token}` } }
+        { headers: { Authorization: `Bearer ${token}` } },
       );
       if (res.status === 200) {
         onClose();
         setSelectedDate("");
         setSelectedTime("");
+        dispatch(
+          ordersApi.endpoints.getOrderDetails.initiate(
+            { id: orderId },
+            { forceRefetch: true },
+          ),
+        );
       }
     } catch (err) {
       console.error(err);

@@ -1,5 +1,5 @@
-// export const BaseUrl = "https://salahliapp.runasp.net/api";
-export const BaseUrl = "https://localhost:7186/api";
+export const BaseUrl = "https://salahliapp.runasp.net/api";
+// export const BaseUrl = "https://localhost:7186/api";
 
 export const LoginUser = "account/login";
 export const RegisterUser = "account/register";
