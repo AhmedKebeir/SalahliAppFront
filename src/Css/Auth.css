@@ -454,6 +454,9 @@
   height: 100vh;
   background-color: #f6f7f8;
 }
+.tech-register {
+  padding: 2rem 0;
+}
 
 .verify .container,
 .address .container,

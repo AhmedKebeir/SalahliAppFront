@@ -10,8 +10,11 @@ import axios from "axios";
 import { BaseTechniciansUrl, BaseUrl } from "../../APIs/Api";
 import Cookie from "cookie-universal";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { currentUserApi } from "../../store/services/CurrentUser";
 
 export default function TechnicianRegister() {
+  const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const cookie = Cookie();
   const nav = useNavigate();
@@ -78,9 +81,10 @@ export default function TechnicianRegister() {
       const res = await axios.post(
         `${BaseUrl}/${BaseTechniciansUrl}`,
         formData,
-        { headers: { Authorization: `Bearer ${token}` } }
+        { headers: { Authorization: `Bearer ${token}` } },
       );
-      if (res.status == 200) {
+      if (res.status === 200) {
+        dispatch(currentUserApi.util.resetApiState());
         nav("/technician-dashboard");
       }
     } catch (err) {
@@ -89,7 +93,6 @@ export default function TechnicianRegister() {
       setLoading(false);
     }
   };
-  console.log(experienceYears);
 
   return (
     <div className="tech-register bg-section">
