@@ -57,7 +57,6 @@ export default function RatingPageTechnician() {
     technicianId: technician?.id,
   });
 
-  console.log(ratings);
   const totalPages = Math.ceil(
     (ratings?.count || 1) / (ratings?.pageSize || 8),
   );
@@ -67,7 +66,6 @@ export default function RatingPageTechnician() {
     sessionStorage.setItem("pageIndexRatingTech", value);
   };
 
-  console.log(technician);
   function timeAgo(dateString) {
     const now = new Date();
     const date = new Date(dateString);

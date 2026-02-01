@@ -29,16 +29,13 @@ export default function RatingPageUser() {
     { skip: !userId }, // لو مفيش id => مايبعتش request
   );
 
-  console.log(user);
-
   const { data: reviewsCount } = useGetAllCountUserOwnsReviewsQuery(
     {
       id: user?.user?.id,
     },
-    { skip: !userId },
+    { skip: !user?.user?.id },
   );
 
-  console.log(reviewsCount);
   const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
     height: 10,
     borderRadius: 5,
@@ -64,7 +61,6 @@ export default function RatingPageUser() {
     userId: user?.user?.id,
   });
 
-  console.log(ratings);
   const totalPages = Math.ceil(
     (ratings?.count || 1) / (ratings?.pageSize || 8),
   );

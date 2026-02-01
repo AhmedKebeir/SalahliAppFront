@@ -205,13 +205,17 @@
   }
   .technician-dashboard > aside,
   .admin-dashboard > aside {
-    position: absolute;
+    position: fixed;
     background-color: white;
     right: -100%;
-    width: 70%;
+    width: 75%;
+    min-width: 70%;
+    max-width: 90%;
     top: 0px;
-    height: calc(100vh);
+    min-height: calc(100dvh);
+    max-height: calc(100vh);
   }
+
   .technician-dashboard > aside.show-menu,
   .admin-dashboard > aside.show-menu {
     right: 0;

@@ -43,7 +43,7 @@ export default function OverviewAdmin() {
           <td>{item?.id}</td>
           <td>{item?.user?.displayName || "بدون اسم"}</td>
           <td>{item?.technician?.displayName || "بدون اسم"}</td>
-          <td>{item?.description}</td>
+          <td>{item?.title}</td>
           <td>{formatOrderDate(item?.createAt)}</td>
           <td>
             {item?.status === "Pending"

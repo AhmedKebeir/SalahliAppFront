@@ -33,7 +33,7 @@ export default function RatingOverviewUser() {
       pageSize: 2,
       userId: user?.user?.id,
     },
-    { skip: !userId },
+    { skip: !user?.user?.id },
   );
 
   const {
@@ -44,7 +44,7 @@ export default function RatingOverviewUser() {
     {
       id: user?.user?.id,
     },
-    { skip: !userId },
+    { skip: !user?.user?.id },
   );
 
   const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({

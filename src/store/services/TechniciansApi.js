@@ -13,8 +13,8 @@ import Cookie from "cookie-universal";
 const cleanParams = (params) => {
   return Object.fromEntries(
     Object.entries(params).filter(
-      ([_, v]) => v !== "" && v !== null && v !== undefined
-    )
+      ([_, v]) => v !== "" && v !== null && v !== undefined,
+    ),
   );
 };
 
@@ -82,7 +82,6 @@ export const techniciansApi = createApi({
         headers: {
           Authorization: `Bearer ${token}`,
         },
-        method: "GET",
       }),
       transformResponse: (response) => {
         return response;

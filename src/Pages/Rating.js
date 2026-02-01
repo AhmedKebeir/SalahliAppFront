@@ -16,7 +16,7 @@ export default function RatingSection() {
   const { technicianId } = useTechnician();
   const { data: technician } = useGetTechnicianByIdQuery(
     { id: technicianId },
-    { skip: !technicianId } // لو مفيش id => مايبعتش request
+    { skip: !technicianId }, // لو مفيش id => مايبعتش request
   );
 
   const {
@@ -29,7 +29,7 @@ export default function RatingSection() {
       pageSize: 2,
       technicianId: technician?.id,
     },
-    { skip: !technicianId }
+    { skip: !technician?.id },
   );
 
   const {
@@ -40,7 +40,7 @@ export default function RatingSection() {
     {
       id: technician?.id,
     },
-    { skip: !technicianId }
+    { skip: !technician?.id },
   );
 
   const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
@@ -137,7 +137,7 @@ export default function RatingSection() {
                   value={
                     Number(
                       (reviewsCount?.fiveStar / reviewsCount?.totalReviews) *
-                        100
+                        100,
                     ) || 0
                   }
                   sx={{
@@ -148,7 +148,7 @@ export default function RatingSection() {
                 />{" "}
                 <span className="persent">
                   {Number(
-                    (reviewsCount?.fiveStar / reviewsCount?.totalReviews) * 100
+                    (reviewsCount?.fiveStar / reviewsCount?.totalReviews) * 100,
                   ) || 0}
                   %
                 </span>
@@ -160,7 +160,7 @@ export default function RatingSection() {
                   value={
                     Number(
                       (reviewsCount?.fourStar / reviewsCount?.totalReviews) *
-                        100
+                        100,
                     ) || 0
                   }
                   sx={{
@@ -171,7 +171,7 @@ export default function RatingSection() {
                 />{" "}
                 <span className="persent">
                   {Number(
-                    (reviewsCount?.fourStar / reviewsCount?.totalReviews) * 100
+                    (reviewsCount?.fourStar / reviewsCount?.totalReviews) * 100,
                   ) || 0}
                   %
                 </span>
@@ -183,7 +183,7 @@ export default function RatingSection() {
                   value={
                     Number(
                       (reviewsCount?.threeStar / reviewsCount?.totalReviews) *
-                        100
+                        100,
                     ) || 0
                   }
                   sx={{
@@ -194,7 +194,8 @@ export default function RatingSection() {
                 />{" "}
                 <span className="persent">
                   {Number(
-                    (reviewsCount?.threeStar / reviewsCount?.totalReviews) * 100
+                    (reviewsCount?.threeStar / reviewsCount?.totalReviews) *
+                      100,
                   ) || 0}
                   %
                 </span>
@@ -205,7 +206,8 @@ export default function RatingSection() {
                   variant="determinate"
                   value={
                     Number(
-                      (reviewsCount?.twoStar / reviewsCount?.totalReviews) * 100
+                      (reviewsCount?.twoStar / reviewsCount?.totalReviews) *
+                        100,
                     ) || 0
                   }
                   sx={{
@@ -216,7 +218,7 @@ export default function RatingSection() {
                 />{" "}
                 <span className="persent">
                   {Number(
-                    (reviewsCount?.twoStar / reviewsCount?.totalReviews) * 100
+                    (reviewsCount?.twoStar / reviewsCount?.totalReviews) * 100,
                   ) || 0}
                   %
                 </span>
@@ -227,7 +229,8 @@ export default function RatingSection() {
                   variant="determinate"
                   value={
                     Number(
-                      (reviewsCount?.oneStar / reviewsCount?.totalReviews) * 100
+                      (reviewsCount?.oneStar / reviewsCount?.totalReviews) *
+                        100,
                     ) || 0
                   }
                   sx={{
@@ -238,7 +241,7 @@ export default function RatingSection() {
                 />{" "}
                 <span className="persent">
                   {Number(
-                    (reviewsCount?.oneStar / reviewsCount?.totalReviews) * 100
+                    (reviewsCount?.oneStar / reviewsCount?.totalReviews) * 100,
                   ) || 0}
                   %
                 </span>

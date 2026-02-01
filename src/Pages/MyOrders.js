@@ -12,7 +12,7 @@ export default function MyOrders() {
   const savedPage =
     parseInt(sessionStorage.getItem("pageIndexOrdersUser")) || 1;
   const [page, setPage] = useState(savedPage);
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState(null);
 
   const { data: orders, isLoading, isFetching } = useGetUserOrdersQuery({
     status: status !== "active" ? status : null,
@@ -113,8 +113,8 @@ export default function MyOrders() {
 
           <div className="links">
             <span
-              className={status === "" ? "active" : ""}
-              onClick={() => setStatus("")}
+              className={status === null ? "active" : null}
+              onClick={() => setStatus(null)}
             >
               الكل
             </span>

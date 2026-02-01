@@ -14,6 +14,7 @@ import { GiNotebook } from "react-icons/gi";
 import "../../Css/Admin/Dashboard.css";
 import { useDispatch } from "react-redux";
 import { handleLogout } from "../../Components/HandleLogout";
+import { CgWebsite } from "react-icons/cg";
 
 export default function DashboardAdmin() {
   const dispatch = useDispatch();
@@ -33,7 +34,12 @@ export default function DashboardAdmin() {
               لوحة التحكم
             </NavLink>
           </li>
-
+          <li>
+            <NavLink to="/home">
+              <CgWebsite />
+              الموقع
+            </NavLink>
+          </li>
           <li>
             <NavLink to="categories">
               <MdCategory />
