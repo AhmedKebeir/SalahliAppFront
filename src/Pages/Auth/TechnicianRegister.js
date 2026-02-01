@@ -84,6 +84,7 @@ export default function TechnicianRegister() {
         { headers: { Authorization: `Bearer ${token}` } },
       );
       if (res.status === 200) {
+        cookie.set("token", res.data.token);
         dispatch(currentUserApi.util.resetApiState());
         nav("/technician-dashboard");
       }

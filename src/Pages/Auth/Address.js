@@ -26,7 +26,6 @@ export default function Address() {
       if (res.status === 200) {
         nav("/user-image");
       }
-      console.log(res);
     } catch (err) {
       console.error(err);
     } finally {

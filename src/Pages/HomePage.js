@@ -69,7 +69,7 @@ export default function HomePage() {
               />
 
               <div>
-                <h3>{item?.fullName}</h3>
+                <h3>{item?.displayName}</h3>
                 <p>{item?.experienceYears} سنوات من الخبرة</p>
               </div>
             </div>

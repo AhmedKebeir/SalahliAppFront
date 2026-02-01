@@ -57,9 +57,8 @@ export default function Verification() {
               Authorization: `Bearer ${token}`,
               "Content-Type": "application/json",
             },
-          }
+          },
         );
-        console.log(res);
         if (res.status === 200) {
           cookie.set("token", res.data.token);
           nav("/address");
@@ -102,9 +101,8 @@ export default function Verification() {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        }
+        },
       );
-      console.log(res);
     } catch (err) {
       setError("حدث خطأ أثناء إعادة الإرسال");
     }

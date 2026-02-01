@@ -12,7 +12,7 @@ export default function UserImage() {
   const nav = useNavigate();
   const [image, setImage] = useState(null);
   const [imageFile, setImageFile] = useState(null);
-  const [err, setErr] = useState("لم يتم حفظ الصورة!");
+  const [err, setErr] = useState(null);
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -42,9 +42,8 @@ export default function UserImage() {
           nav("/tech-register");
         }
       }
-      console.log(res);
     } catch (err) {
-      console.log(err);
+      setErr(err.response.message);
     } finally {
       setLoading(false);
     }
