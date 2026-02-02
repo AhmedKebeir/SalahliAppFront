@@ -43,7 +43,7 @@ export default function TechnicianPage() {
                     alt=""
                   />
                   <div>
-                    <h3>{technician?.fullName}</h3>
+                    <h3>{technician?.displayName}</h3>
                     <div className="rating">
                       <span className="star">★ </span>
                       {Number(technician?.averageRating) || 0}.0
