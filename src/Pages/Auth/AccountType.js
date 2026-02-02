@@ -87,7 +87,7 @@ export default function AccountType() {
         </form>
       </div>
       <aside>
-        <h2>صلحلي</h2>
+        <h2>المنقذ</h2>
         <p>خبراء الصيانة بين يديك</p>
       </aside>
     </div>

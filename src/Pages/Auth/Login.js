@@ -57,7 +57,7 @@ export default function Login() {
       <div className="right">
         <Logo />
         <h2>تسجيل الدخول إلي حسابك</h2>
-        <p>أهلاً بك مجدداً في صلحلي</p>
+        <p>أهلاً بك مجدداً في المنقذ</p>
         <form onSubmit={handelSubmit}>
           <label htmlFor="email">اسم المستخدم او البريد الإلكتروني</label>
           <div className="username">
@@ -115,7 +115,7 @@ export default function Login() {
         </div>
       </div>
       <aside>
-        <h2>صلحلي</h2>
+        <h2>المنقذ</h2>
         <p>خبراء الصيانة بين يديك</p>
       </aside>
     </div>

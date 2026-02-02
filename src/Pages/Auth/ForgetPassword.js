@@ -32,7 +32,7 @@ export default function ForgetPassword() {
     try {
       const res = await axios.post(
         `${BaseUrl}/${ForgetPasswordApi}?email=${form.email}`,
-        {}
+        {},
       );
       if (res.status === 200) {
         sessionStorage.setItem("forget-password-email", form.email);
@@ -85,7 +85,7 @@ export default function ForgetPassword() {
         </div>
       </div>
       <aside>
-        <h2>صلحلي</h2>
+        <h2>المنقذ</h2>
         <p>خبراء الصيانة بين يديك</p>
       </aside>
     </div>

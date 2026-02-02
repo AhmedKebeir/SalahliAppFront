@@ -40,7 +40,7 @@ export default function Register() {
     try {
       if (!passwordRegex.test(form.password)) {
         setErr(
-          "الباسورد يجب أن يحتوي على حرف كبير وصغير ورقم ورمز وليس أقل من 8 أحرف."
+          "الباسورد يجب أن يحتوي على حرف كبير وصغير ورقم ورمز وليس أقل من 8 أحرف.",
         );
       }
       if (form.confirmPassword !== form.password) {
@@ -64,7 +64,7 @@ export default function Register() {
       <div className="right">
         <Logo />
         <h2>إنشاء حساب جديد</h2>
-        <p>انضم إلي منصة صلحلي اليوم</p>
+        <p>انضم إلي منصة المنقذ اليوم</p>
         <div className="display-name">
           <div div className="first-name">
             <label htmlFor="firstname">الاسم الأول</label>
@@ -195,7 +195,7 @@ export default function Register() {
         </div>
       </div>
       <aside>
-        <h2>صلحلي</h2>
+        <h2>المنقذ</h2>
         <p>حلول موثوقة لجميع أجهزتك المنزلية</p>
       </aside>
     </div>
