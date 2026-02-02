@@ -61,7 +61,7 @@ function App() {
   if (loading) return <AppLoading heading="جاري التحميل الموقع...." />;
   return (
     <div className="App">
-      {/* <ScrollToTop /> */}
+      <ScrollToTop />
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<LandingPage />} />
         <Route path="/slide" element={<Slide />} />

@@ -64,7 +64,7 @@ export default function LandingPage() {
           </h2>
           <p>تواصل مع فنيين معتمدين ومحليين لخدمة سريعة وموثوقة.</p>
           <div className="welcome-btns">
-            <button className="serv-btn" onClick={() => nav("/categories")}>
+            <button className="serv-btn" onClick={() => nav("/login")}>
               اطلب خدمة
             </button>
             <button className="learn-btn" onClick={() => nav("/account-type")}>
@@ -218,7 +218,7 @@ export default function LandingPage() {
           </div>
           <div className="content">
             <h2>
-              <span>لماذا</span> تختار صلحلي؟
+              <span>لماذا</span> تختار المنقذ؟
             </h2>
             <p>
               نحن نقدم تجربة سلسة وموثوقة من البداية إلى النهاية. إليك ما
@@ -311,7 +311,7 @@ export default function LandingPage() {
               </div>
               <div className="stars">★★★★★</div>
               <blockquote>
-                "صلحلي غير طريقة عملي. أحصل على المزيد من العملاء الآن وأدير
+                "المنقذ غير طريقة عملي. أحصل على المزيد من العملاء الآن وأدير
                 جدول أعمالي بسهولة. منصة رائعة للفنيين."
               </blockquote>
             </div>
@@ -326,7 +326,7 @@ export default function LandingPage() {
           الفنيين المهرة، نحن هنا لمساعدتك.
         </p>
         <div className="links-sign d-flex gap-20">
-          <Link to="/categories" className="serv-btn">
+          <Link to="/login" className="serv-btn">
             اطلب خدمة الآن
           </Link>
           <Link to="/account-type" className="learn-btn">

@@ -10,7 +10,7 @@ export default function Logo() {
       <span className="logo-icon">
         <BsWrenchAdjustable />
       </span>
-      <h1>صلحلي</h1>
+      <h1>المنقذ</h1>
     </div>
   );
 }
