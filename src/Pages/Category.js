@@ -11,6 +11,7 @@ import AppLoading from "../Components/AppLoading";
 
 export default function Category() {
   const topRef = useRef(null);
+  const isFirstRender = useRef(true);
   const savedPage =
     parseInt(sessionStorage.getItem("pageIndexCategoryId")) || 1;
   const [page, setPage] = useState(savedPage);
@@ -107,11 +108,18 @@ export default function Category() {
   };
 
   useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      window.scrollTo(0, 0);
+      return;
+    }
+
     topRef.current?.scrollIntoView({
       behavior: "smooth",
       block: "start",
     });
   }, [page]);
+
   return (
     <>
       <Header />

@@ -12,6 +12,7 @@ import AppLoading from "../Components/AppLoading";
 
 export default function Categories() {
   const topRef = useRef(null);
+  const isFirstRender = useRef(true);
   const savedPage =
     parseInt(sessionStorage.getItem("userPageIndexCategories")) || 1;
   const [page, setPage] = useState(savedPage);
@@ -78,13 +79,20 @@ export default function Categories() {
     : [];
 
   useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      window.scrollTo(0, 0);
+      return;
+    }
+
     topRef.current?.scrollIntoView({
       behavior: "smooth",
       block: "start",
     });
   }, [page]);
+
   return (
-    <div className="categories-page">
+    <div className="categories-page" ref={topRef}>
       <Header />
 
       <div className="container">
@@ -108,7 +116,7 @@ export default function Categories() {
         </div>
         {searchText === "" ? (
           <>
-            <div className="categories-section" ref={topRef}>
+            <div className="categories-section">
               <div
                 className="title"
                 // onClick={() => setBasicCatShow(!catBasicShow)}

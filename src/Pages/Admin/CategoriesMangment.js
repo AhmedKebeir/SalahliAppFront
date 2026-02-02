@@ -12,6 +12,7 @@ import AppLoading from "../../Components/AppLoading";
 
 export default function CategoriesMangment() {
   const topRef = useRef(null);
+  const isFirstRender = useRef(true);
   const savedPage =
     parseInt(sessionStorage.getItem("pageIndexDepartments")) || 1;
   const [page, setPage] = useState(savedPage);
@@ -20,6 +21,12 @@ export default function CategoriesMangment() {
   const [sort, setSort] = useState("");
 
   useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      window.scrollTo(0, 0);
+      return;
+    }
+
     topRef.current?.scrollIntoView({
       behavior: "smooth",
       block: "start",

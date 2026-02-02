@@ -14,6 +14,7 @@ import AppLoading from "../../Components/AppLoading";
 export default function OrdersTechnicianControl() {
   const [searchParams] = useSearchParams();
   const topRef = useRef(null);
+  const isFirstRender = useRef(true);
 
   const savedPage = parseInt(sessionStorage.getItem("pageIndexOrders")) || 1;
   const [page, setPage] = useState(savedPage);
@@ -114,6 +115,12 @@ export default function OrdersTechnicianControl() {
   const totalPages = Math.ceil((orders?.count || 1) / (orders?.pageSize || 8));
 
   useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      window.scrollTo(0, 0);
+      return;
+    }
+
     topRef.current?.scrollIntoView({
       behavior: "smooth",
       block: "start",

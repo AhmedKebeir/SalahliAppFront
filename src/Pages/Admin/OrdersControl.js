@@ -13,6 +13,7 @@ import AppLoading from "../../Components/AppLoading";
 
 export default function OrdersControl() {
   const topRef = useRef(null);
+  const isFirstRender = useRef(true);
   const savedPage = parseInt(sessionStorage.getItem("pageIndexOrders")) || 1;
   const [page, setPage] = useState(savedPage);
   const [departmentsSelect, setDepartmentsSelect] = useState("");
@@ -52,6 +53,12 @@ export default function OrdersControl() {
   // }, [dispatch]);
 
   useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      window.scrollTo(0, 0);
+      return;
+    }
+
     topRef.current?.scrollIntoView({
       behavior: "smooth",
       block: "start",

@@ -17,6 +17,7 @@ import AppLoading from "../../Components/AppLoading";
 
 export default function TechnicianControl() {
   const topRef = useRef(null);
+  const isFirstRender = useRef(true);
   const cookie = Cookie();
   const token = cookie.get("token");
   const savedPage =
@@ -56,6 +57,12 @@ export default function TechnicianControl() {
   // }, [dispatch]);
 
   useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      window.scrollTo(0, 0);
+      return;
+    }
+
     topRef.current?.scrollIntoView({
       behavior: "smooth",
       block: "start",

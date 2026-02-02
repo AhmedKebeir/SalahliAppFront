@@ -17,6 +17,7 @@ import AppLoading from "../../Components/AppLoading";
 
 export default function ReviewsTechnicianDashboard() {
   const topRef = useRef(null);
+  const isFirstRender = useRef(true);
   const savedPage =
     parseInt(sessionStorage.getItem("pageIndexRatingTechDashboard")) || 1;
   const [page, setPage] = useState(savedPage);
@@ -116,6 +117,12 @@ export default function ReviewsTechnicianDashboard() {
       ))
     : [];
   useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      window.scrollTo(0, 0);
+      return;
+    }
+
     topRef.current?.scrollIntoView({
       behavior: "smooth",
       block: "start",

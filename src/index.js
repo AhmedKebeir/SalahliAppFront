@@ -13,6 +13,7 @@ import { store } from "./store/store";
 import { TechnicianProvider } from "./Context/TechnicianProvider";
 import WindowWidthContext from "./Context/WindowWidthContext";
 import { UserProvider } from "./Context/UserProvider";
+import ScrollToTop from "./Components/ScrollToTop";
 
 const theme = createTheme({
   direction: "rtl", // 🔵 تشغيل RTL

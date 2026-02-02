@@ -94,7 +94,7 @@ export default function Header() {
           </li>
           <div className="phone-links">
             <li>
-              <NavLink to={`${currentUser ? "/home" : ""}`}>
+              <NavLink to={`${currentUser ? "/home" : "/"}`} end>
                 <div className="icon-name">
                   <IoMdHome />
                   الرئيسية
@@ -103,7 +103,7 @@ export default function Header() {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/categories">
+              <NavLink to="/categories" end>
                 <div className="icon-name">
                   <BiSolidCategory />
                   تصفح الخدمات
@@ -112,7 +112,7 @@ export default function Header() {
               </NavLink>
             </li>
             <li className="orders">
-              <NavLink to={`${currentUser ? "/my-orders" : "/login"}`}>
+              <NavLink to={`${currentUser ? "/my-orders" : "/login"}`} end>
                 <div className="icon-name">
                   <GiNotebook />
                   طلباتي
