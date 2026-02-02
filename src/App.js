@@ -70,6 +70,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/verify" element={<Verification />} />
         <Route path="/forget-password" element={<ForgetPassword />} />
+        <Route path="/categories" element={<Categories />} />
         <Route
           path="/verify-reset-password"
           element={<VerifyResetPassword />}
@@ -80,7 +81,7 @@ function App() {
           <Route path="/address" element={<Address />} />
           <Route path="/user-image" element={<UserImage />} />
           <Route path="/home" element={<HomePage />} />
-          <Route path="/categories" element={<Categories />} />
+
           <Route path="/categories/:id" element={<Category />} />
           <Route path="/my-orders" element={<MyOrders />} />
           <Route path="/technicians/:id" element={<TechnicianPage />}>

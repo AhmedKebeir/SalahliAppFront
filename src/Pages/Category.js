@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Header from "../Components/Header";
 import "../Css/Category.css";
 import { Link, useParams } from "react-router-dom";
@@ -10,6 +10,7 @@ import { CiSearch } from "react-icons/ci";
 import AppLoading from "../Components/AppLoading";
 
 export default function Category() {
+  const topRef = useRef(null);
   const savedPage =
     parseInt(sessionStorage.getItem("pageIndexCategoryId")) || 1;
   const [page, setPage] = useState(savedPage);
@@ -51,7 +52,7 @@ export default function Category() {
   };
 
   const totalPages = Math.ceil(
-    (technicians?.count || 1) / (technicians?.pageSize || 8)
+    (technicians?.count || 1) / (technicians?.pageSize || 8),
   );
 
   const techniciansShow = Array.isArray(technicians?.data)
@@ -104,10 +105,17 @@ export default function Category() {
   const handleChangeFilter = (e) => {
     setFilteration({ ...filteration, [e.target.name]: e.target.value });
   };
+
+  useEffect(() => {
+    topRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }, [page]);
   return (
     <>
       <Header />
-      <div className="category-page">
+      <div className="category-page" ref={topRef}>
         {isFetchingDepartment || isLoadingDepartment ? (
           <AppLoading />
         ) : (

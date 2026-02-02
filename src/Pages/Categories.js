@@ -5,12 +5,13 @@ import Header from "../Components/Header";
 import "../Css/Categories.css";
 import { AiFillCaretDown } from "react-icons/ai";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Pagination from "@mui/material/Pagination";
 import { useGetTopFourCategoriesQuery } from "../store/services/CategoriesApi";
 import AppLoading from "../Components/AppLoading";
 
 export default function Categories() {
+  const topRef = useRef(null);
   const savedPage =
     parseInt(sessionStorage.getItem("userPageIndexCategories")) || 1;
   const [page, setPage] = useState(savedPage);
@@ -38,7 +39,7 @@ export default function Categories() {
   // عند تغيير كلمة البحث → اعمل API fetch
 
   const totalPages = Math.ceil(
-    (categories?.count || 1) / (categories?.pageSize || 6)
+    (categories?.count || 1) / (categories?.pageSize || 6),
   );
   const handleChange = (event, value) => {
     if (value === page) return;
@@ -75,6 +76,13 @@ export default function Categories() {
         </div>
       ))
     : [];
+
+  useEffect(() => {
+    topRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }, [page]);
   return (
     <div className="categories-page">
       <Header />
@@ -100,7 +108,7 @@ export default function Categories() {
         </div>
         {searchText === "" ? (
           <>
-            <div className="categories-section">
+            <div className="categories-section" ref={topRef}>
               <div
                 className="title"
                 // onClick={() => setBasicCatShow(!catBasicShow)}
