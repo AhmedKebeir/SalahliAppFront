@@ -103,7 +103,7 @@ export default function Header() {
               </NavLink>
             </li>
             <li>
-              <NavLink to={`${currentUser ? "/categories" : "/login"}`}>
+              <NavLink to="/categories">
                 <div className="icon-name">
                   <BiSolidCategory />
                   تصفح الخدمات
