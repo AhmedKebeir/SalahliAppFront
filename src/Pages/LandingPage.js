@@ -64,7 +64,7 @@ export default function LandingPage() {
           </h2>
           <p>تواصل مع فنيين معتمدين ومحليين لخدمة سريعة وموثوقة.</p>
           <div className="welcome-btns">
-            <button className="serv-btn" onClick={() => nav("/login")}>
+            <button className="serv-btn" onClick={() => nav("/categories")}>
               اطلب خدمة
             </button>
             <button className="learn-btn" onClick={() => nav("/account-type")}>
@@ -326,7 +326,7 @@ export default function LandingPage() {
           الفنيين المهرة، نحن هنا لمساعدتك.
         </p>
         <div className="links-sign d-flex gap-20">
-          <Link to="/login" className="serv-btn">
+          <Link to="/categories" className="serv-btn">
             اطلب خدمة الآن
           </Link>
           <Link to="/account-type" className="learn-btn">
