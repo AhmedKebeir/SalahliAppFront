@@ -79,7 +79,7 @@ export default function Register() {
           </div>
 
           <div className="last-name">
-            <label htmlFor="lastname">الاسم الأول</label>
+            <label htmlFor="lastname">الاسم الأخير</label>
             <input
               id="lastname"
               type="text"
